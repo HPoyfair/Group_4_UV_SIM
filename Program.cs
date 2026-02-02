@@ -6,8 +6,10 @@ class Program
     {
         Console.WriteLine("UVSim - BasicML Simulator");
         
-        
+        Simulator simulator = new Simulator();
 
+        simulator.ReadFile("Test1.txt");
+        simulator.LogMemory();
 
 
 
