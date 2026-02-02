@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4593fa82c244c373faee14e26fa4c86ffe8336bd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fb56fe6e8801c511244cfcba8f24516b9c5fab8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
