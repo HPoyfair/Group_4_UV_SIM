@@ -8,8 +8,7 @@ class Program
         
         Simulator simulator = new Simulator();
 
-        simulator.ReadFile("Test1.txt");
-        simulator.LogMemory();
+        simulator.Run();
 
 
 

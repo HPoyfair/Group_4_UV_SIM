@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+
 
 
 
@@ -6,14 +8,34 @@ public class Simulator
 {
 
     private int[] memory = new int[100];
+    private int accumulator = 0;
+    private int instructionPointer = 0;
+    // other things here as needed 
 
 
     public void Run()
     {
+
+
+        Console.Write("Enter program file path: ");
+        string path = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(path))
+        {
+            Console.WriteLine("No file path provided. Exiting.");
+            return;
+        }
+
+        ReadFile(path); 
+        LogMemory();
+
         
+        //iterate through memory and execute instructions
+        
+
     }
 
-    public void ReadFile(string path)
+    private void ReadFile(string path)
     {
         
 
@@ -43,5 +65,45 @@ public class Simulator
         {
             Console.WriteLine($"Memory[{i}]: {memory[i]}");
         }
+    }
+
+
+    
+    private void ExecuteInstruction(int opcode, int operand)
+    {
+        switch (opcode)
+{
+    case 10:
+    case 11:
+        // Input/Output operations
+        //ex. InputOutput.Execute(opcode, operand);
+        break;
+
+    case 20:
+    case 21:
+        // Load/Store operations
+        //ex. LoadStore.Execute(opcode, operand);
+        break;
+
+    case 30:
+    case 31:
+    case 32:
+    case 33:
+        // Arithmetic operations
+        //ex. Arithmetic.Execute(opcode, operand);
+        break;
+
+    case 40:
+    case 41:
+    case 42:
+    case 43:
+        // Control operations
+        //ex. Control.Execute(opcode, operand);
+        break;
+
+    default:
+        throw new Exception($"Invalid opcode: {opcode}");
+}
+
     }
 }

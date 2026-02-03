@@ -18,8 +18,10 @@ The simulator loads a BasicML program from a text file and the instructions load
 ---
 
 ## Running the program
-- 'dotnet run'
+from the terminal
+- dotnet run
+- enter Test1.txt 
 
 ## Who's doing what 
-- Jason: Control Operations 
+- Jason: Operations/Control.cs
 
