@@ -9,9 +9,14 @@ The simulator loads a BasicML program from a text file and the instructions load
 
 ---
 
+
 ## Requirements
 
 - .NET 8.x.x.x SDK installed
 
-Check your version: 
+
+---
+
+## Running the program
+- dotnet run
 
