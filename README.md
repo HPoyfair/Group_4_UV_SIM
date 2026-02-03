@@ -20,3 +20,6 @@ The simulator loads a BasicML program from a text file and the instructions load
 ## Running the program
 - 'dotnet run'
 
+## Who's doing what 
+- Jason: Control Operations 
+
