@@ -7,9 +7,7 @@ using System.IO;
 public class Simulator
 {
 
-    private int[] memory = new int[100];
-    private int accumulator = 0;
-    private int instructionPointer = 0;
+    private readonly CpuState cpu = new CpuState();
     // other things here as needed 
 
 
@@ -24,7 +22,7 @@ public class Simulator
         {
             Console.WriteLine("No file path provided. Exiting.");
             return;
-        }
+        } 
 
         ReadFile(path); 
         LogMemory();
@@ -32,9 +30,7 @@ public class Simulator
         
         //iterate through memory and execute instructions
         
-
     }
-
     private void ReadFile(string path)
     {
         
@@ -48,12 +44,12 @@ public class Simulator
         //read file and load instructions into memory 
         string[] lines = File.ReadAllLines(path);
 
-        for (int i = 0; i < lines.Length && i < memory.Length; i++)
+        for (int i = 0; i < lines.Length && i < cpu.Memory.Length; i++)
         {
             //stop reading if empty line exists
             if(lines[i].Trim() == "") break;
             //convert string to number and store in memory at the
-            memory[i] = int.Parse(lines[i]);
+            cpu.Memory[i] = int.Parse(lines[i]);
         }
 
     }
@@ -61,44 +57,47 @@ public class Simulator
 
     public void LogMemory()
     {
-        for (int i = 0; i < memory.Length; i++)
+        for (int i = 0; i < cpu.Memory.Length; i++)
         {
-            Console.WriteLine($"Memory[{i}]: {memory[i]}");
+            Console.WriteLine($"Memory[{i}]: {cpu.Memory[i]}");
         }
     }
+    
+
 
 
     
-    private void ExecuteInstruction(int opcode, int operand)
+
+    private static void ExecuteInstruction(int opcode, int operand)
     {
         switch (opcode)
-{
+{// Input/Output operations
     case 10:
     case 11:
-        // Input/Output operations
-        //ex. InputOutput.Execute(opcode, operand);
+        
+        
         break;
-
+ // Load/Store operations
+      
     case 20:
     case 21:
-        // Load/Store operations
-        //ex. LoadStore.Execute(opcode, operand);
+       
         break;
-
+// Arithmetic operations
     case 30:
     case 31:
     case 32:
     case 33:
-        // Arithmetic operations
-        //ex. Arithmetic.Execute(opcode, operand);
+        
+        
         break;
-
+ // Control operations
     case 40:
     case 41:
     case 42:
     case 43:
-        // Control operations
-        //ex. Control.Execute(opcode, operand);
+       
+        
         break;
 
     default:
