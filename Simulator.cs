@@ -27,17 +27,19 @@ public class Simulator
         ReadFile(path); 
         LogMemory();
 
-        
+        //================== RUN TIME ===============
         //iterate through memory and execute instructions
 
-        for(int i = 0; i < cpu.Memory.Length; i++)
-        {
-            cpu.InstructionPointer = i;
-            int instruction = cpu.Memory[i];
-            int opcode = instruction / 100;
-            int operand = instruction % 100;
+        cpu.InstructionPointer = 0;
+        // run the program when instructions are ABOVE 0, HALT FLAG IS FALSE, and IP IS WITHIN MEMORY BOUNDS
+        while(!cpu.Halted && cpu.InstructionPointer < cpu.Memory.Length && cpu.InstructionPointer >= 0) {  
+            int instruction = cpu.Memory[cpu.InstructionPointer];
+            int opcode = instruction / 100; // first two digits
+            int operand = instruction % 100; // last two digits
 
-           
+            ExecuteInstruction(opcode, operand);
+
+    
         }
         
     }
@@ -77,8 +79,12 @@ public class Simulator
 
 
     
+//IMPORTANT: You all need to increment instruction pointer on each case or handle that inside your operations class (you can look at control)
 
-    private static void ExecuteInstruction(int opcode, int operand)
+
+
+
+    private void ExecuteInstruction(int opcode, int operand)
     {
         switch (opcode)
 {// Input/Output operations
@@ -103,9 +109,16 @@ public class Simulator
         break;
  // Control operations
     case 40:
+        Control.Branch(opcode, operand, cpu);
+        break;
     case 41:
+        Control.BranchNeg(opcode, operand, cpu);
+        break;
     case 42:
+        Control.BranchZero(opcode, operand, cpu);
+        break;
     case 43:
+        Control.Halt(opcode, operand, cpu);
        
         
         break;

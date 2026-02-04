@@ -23,6 +23,10 @@ public class Control
         {
             cpu.InstructionPointer = operand;
         }
+        else
+        {
+            cpu.InstructionPointer++;
+        }
     }
 
     public static void BranchNeg(int opcode, int operand, CpuState cpu)
@@ -31,6 +35,11 @@ public class Control
         if (cpu.Accumulator < 0)
         {
             cpu.InstructionPointer = operand;
+        }
+
+        else
+        {
+            cpu.InstructionPointer++;
         }
     }
    
