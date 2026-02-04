@@ -37,6 +37,7 @@ public class Simulator
             int opcode = instruction / 100; // first two digits
             int operand = instruction % 100; // last two digits
 
+            //execute instruction based on opcode (ex: 1007 == opcode:10, operand:7)
             ExecuteInstruction(opcode, operand);
 
     
@@ -87,27 +88,35 @@ public class Simulator
     private void ExecuteInstruction(int opcode, int operand)
     {
         switch (opcode)
-{// Input/Output operations
+{//============================= Input/Output operations =========================
     case 10:
-    case 11:
-        
-        
+        InputOutput.Read(opcode, operand, cpu);
         break;
- // Load/Store operations
+    case 11:
+        InputOutput.Write(opcode, operand, cpu);
+        break;
+ // ===========================  Load/Store operations =========================
       
     case 20:
+        LoadStore.Load(opcode, operand, cpu);
+        break;
     case 21:
-       
+       LoadStore.Store(opcode, operand, cpu);
         break;
-// Arithmetic operations
+// =============================  Arithmetic operations =========================
     case 30:
-    case 31:
-    case 32:
-    case 33:
-        
-        
+        Arithmetic.Add(opcode, operand, cpu);
         break;
- // Control operations
+    case 31:
+        Arithmetic.Subtract(opcode, operand, cpu);
+        break;
+    case 32:
+        Arithmetic.Divide(opcode, operand, cpu);
+        break;
+    case 33:
+        Arithmetic.Multiply(opcode, operand, cpu);
+        break;
+ //============================== Control operations ===========================
     case 40:
         Control.Branch(opcode, operand, cpu);
         break;
@@ -119,8 +128,6 @@ public class Simulator
         break;
     case 43:
         Control.Halt(opcode, operand, cpu);
-       
-        
         break;
 
     default:
