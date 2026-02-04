@@ -1,24 +1,37 @@
-using System.Runtime.CompilerServices;
+
+
+using System.Dynamic;
 
 public class Control
 {
-    public void Branch()
+    public static void Branch(int opcode, int operand, CpuState cpu)
     {
-        
+        // set operand as the instruction pointer
+        cpu.InstructionPointer = operand;
+
     }
 
-    public void Halt()
+    public static void Halt(int opcode, int operand, CpuState cpu)
     {
-        
+        //set halt flag to true
+        cpu.Halted = true;
     }
-    public void BranchZero()
+    public static void BranchZero(int opcode, int operand, CpuState cpu)
     {
-        
+        // check if accumulator is zero, if so set instruction pointer to operand
+        if (cpu.Accumulator == 0)
+        {
+            cpu.InstructionPointer = operand;
+        }
     }
 
-    public void BranchNeg()
+    public static void BranchNeg(int opcode, int operand, CpuState cpu)
     {
-        
+        // check if accumulator is negative, if so set instruction pointer to operand
+        if (cpu.Accumulator < 0)
+        {
+            cpu.InstructionPointer = operand;
+        }
     }
    
 }

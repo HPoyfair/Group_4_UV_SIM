@@ -29,6 +29,16 @@ public class Simulator
 
         
         //iterate through memory and execute instructions
+
+        for(int i = 0; i < cpu.Memory.Length; i++)
+        {
+            cpu.InstructionPointer = i;
+            int instruction = cpu.Memory[i];
+            int opcode = instruction / 100;
+            int operand = instruction % 100;
+
+           
+        }
         
     }
     private void ReadFile(string path)
