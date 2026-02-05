@@ -44,17 +44,31 @@ public class Arithmetic
 
         cpu.InstructionPointer++;
     }
-
+    // DIVIDE operation, divides accumulator by operand if number is not 0
     public static void Divide(int opcode, int operand, CpuState cpu) {
-        //======= function ======
+        if (operand == 0)
+        {
+            Console.WriteLine("Error: Cannot divide by 0");
+        }
+        else
+        {
+            cpu.Accumulator = cpu.Accumulator / operand;
+        }
 
-        //increment instruction pointer
         cpu.InstructionPointer++;
     }
+    // MULTIPLY operation, multilpies accumulator and operand if safe, result stays in accumulator
     public static void Multiply(int opcode, int operand, CpuState cpu) {
-        //======= function ======
+        int result = cpu.Accumulator * cpu.Memory[operand];
 
-        //increment instruction pointer
+        if (IsSafe(result))
+        {
+            cpu.Accumulator = result;
+        }
+        else
+        {
+            Console.WriteLine("Error: Overflow in MULTIPLY operation.");
+        }
         cpu.InstructionPointer++;
     }
 }
