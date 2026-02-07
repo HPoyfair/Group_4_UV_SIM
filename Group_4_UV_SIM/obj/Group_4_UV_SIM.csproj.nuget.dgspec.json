@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {}
+    "/workspaces/Group_4_UV_SIM/Group_4_UV_SIM/Group_4_UV_SIM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
+    "/workspaces/Group_4_UV_SIM/Group_4_UV_SIM/Group_4_UV_SIM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+        "projectUniqueName": "/workspaces/Group_4_UV_SIM/Group_4_UV_SIM/Group_4_UV_SIM.csproj",
         "projectName": "Group_4_UV_SIM",
-        "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
-        "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\obj\\",
+        "projectPath": "/workspaces/Group_4_UV_SIM/Group_4_UV_SIM/Group_4_UV_SIM.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/Group_4_UV_SIM/Group_4_UV_SIM/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -54,12 +54,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.22, 8.0.22]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.22, 8.0.22]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5,9 +5,7 @@ public class LoadStore
     {
         if (operand < 0 || operand >= cpu.Memory.Length)
         {
-            Console.WriteLine($"Error: Invalid memory address {operand} in LOAD operation.");
-            cpu.InstructionPointer++;
-            return;
+            throw new IndexOutOfRangeException($"Invalid memory address {operand} in LOAD operation.");
         }
 
         // Load a word from memory location (operand) into the accumulator
@@ -21,9 +19,7 @@ public class LoadStore
     {
         if (operand < 0 || operand >= cpu.Memory.Length)
         {
-            Console.WriteLine($"Error: Invalid memory address {operand} in STORE operation.");
-            cpu.InstructionPointer++;
-            return;
+            throw new IndexOutOfRangeException($"Invalid memory address {operand} in STORE operation.");
         }
 
         // Store the accumulator value into memory location (operand)
