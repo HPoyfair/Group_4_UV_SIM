@@ -6,20 +6,31 @@ using Group_4_UV_SIM; // <- your namespace
 
 public class InputOutputTests
 {
-    [Fact]
-    public void Input_ReadsValueIntoMemory()
+   [Fact]
+public void Input_ReadsValueIntoMemory()
+{
+    var cpu = new CpuState();
+    cpu.InstructionPointer = 5;
+
+    var originalIn = Console.In;
+    var originalOut = Console.Out;
+
+    try
     {
-            var cpu = new CpuState();
-            cpu.InstructionPointer = 5;
-    
-            // Simulate input by directly setting the value in memory
-           
-            Console.SetIn(new StringReader("42")); 
-            InputOutput.Read(30, 10, cpu);
-    
-            Assert.Equal(42, cpu.Memory[10]);
-            Assert.Equal(6, cpu.InstructionPointer);
+        Console.SetIn(new StringReader("42\n"));
+        Console.SetOut(new StringWriter()); // suppress prompt spam
+
+        InputOutput.Read(10, 10, cpu);
+
+        Assert.Equal(42, cpu.Memory[10]);
+        Assert.Equal(6, cpu.InstructionPointer);
     }
+    finally
+    {
+        Console.SetIn(originalIn);
+        Console.SetOut(originalOut);
+    }
+}
 
     [Fact]
 public void Read_InvalidThenValidInput_RepromptsAndStoresValidValue()
