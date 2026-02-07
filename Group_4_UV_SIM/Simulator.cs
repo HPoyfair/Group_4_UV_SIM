@@ -45,7 +45,7 @@ public class Simulator
         }
         
     }
-    private void ReadFile(string path)
+    public void ReadFile(string path)
     {
         
 

@@ -13,3 +13,18 @@ C:\Users\HaydenP\programming\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\refi
 C:\Users\HaydenP\programming\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.pdb
 C:\Users\HaydenP\programming\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.genruntimeconfig.cache
 C:\Users\HaydenP\programming\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\ref\Group_4_UV_SIM.dll
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\bin\Debug\net8.0\Group_4_UV_SIM.exe
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\bin\Debug\net8.0\Group_4_UV_SIM.deps.json
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\bin\Debug\net8.0\Group_4_UV_SIM.runtimeconfig.json
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\bin\Debug\net8.0\Group_4_UV_SIM.dll
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\bin\Debug\net8.0\Group_4_UV_SIM.pdb
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.AssemblyInfoInputs.cache
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.AssemblyInfo.cs
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.csproj.CoreCompileInputs.cache
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.sourcelink.json
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.dll
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\refint\Group_4_UV_SIM.dll
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.pdb
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\Group_4_UV_SIM.genruntimeconfig.cache
+C:\Users\jason\SCHOOL\Spring 2026\Software Engineering\Group_4_UV_SIM\Group_4_UV_SIM\obj\Debug\net8.0\ref\Group_4_UV_SIM.dll

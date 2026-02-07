@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj": {}
+    "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj": {
+    "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
         "projectName": "Group_4_UV_SIM.Tests",
-        "projectPath": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
-        "packagesPath": "C:\\Users\\HaydenP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\obj\\",
+        "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+        "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HaydenP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
-                "projectPath": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj"
+              "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
+                "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj"
               }
             }
           }
@@ -43,7 +41,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -85,28 +84,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
+    "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+        "projectUniqueName": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
         "projectName": "Group_4_UV_SIM",
-        "projectPath": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
-        "packagesPath": "C:\\Users\\HaydenP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HaydenP\\programming\\Group_4_UV_SIM\\Group_4_UV_SIM\\obj\\",
+        "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+        "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HaydenP\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -124,7 +121,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -145,7 +143,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
