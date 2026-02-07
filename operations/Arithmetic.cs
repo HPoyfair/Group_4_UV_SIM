@@ -1,3 +1,5 @@
+
+namespace Group_4_UV_SIM;
 public class Arithmetic
 {
     private const int WORD_LIMIT = 9999;

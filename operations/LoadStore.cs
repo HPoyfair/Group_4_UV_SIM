@@ -1,3 +1,4 @@
+namespace Group_4_UV_SIM;
 public class LoadStore
 {
     public static void Load(int opcode, int operand, CpuState cpu)
