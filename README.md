@@ -35,8 +35,14 @@ Main: runs Simulator.run()
 
 ## Running the program
 from the terminal
+- git clone https://github.com/HPoyfair/Group_4_UV_SIM.git
+- cd into cloned repo (Group_4_UV_SIM ) 
+- from there cd into the project with * cd Group_4_UV_SIM *  (The repo name is the same as the inner project name)
 - dotnet run
-- enter Test1.txt 
+- enter the path: Test1.txt 
+## notes
+to store information enter the value into the terminal when prompted
+The word limit is 9999 so all inputs from the user must be a number and by less this value.
 
 ## Run Tests
 from the terminal 
