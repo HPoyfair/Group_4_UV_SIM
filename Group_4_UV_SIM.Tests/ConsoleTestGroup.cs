@@ -1,12 +1,61 @@
 using Xunit;
+
 using System;
 using System.IO;
-using Group_4_UV_SIM; // <- your namespace
+using Group_4_UV_SIM; 
 
 
-public class InputOutputTests
+[CollectionDefinition("Console Tests", DisableParallelization = true)]
+public class ConsoleTests
+// Tests Input/Output and any other instructions that interact with the console.
+//in this case, subtract is included as it uses the console for checking exception generated.
 {
-   [Fact]
+    [Fact]
+    public void Subtract_InvalidAddress_HandlesFailure()
+    {
+        // UC-09 failure/edge: invalid memory address
+        var cpu = new CpuState();
+        cpu.InstructionPointer = 0;
+
+        int badOperand = 150;
+
+        var originalOut = Console.Out;
+        var output = new StringWriter();
+        bool threw = false;
+
+        try
+        {
+            Console.SetOut(output);
+
+            try
+            {
+                Arithmetic.Subtract(31, badOperand, cpu);
+            }
+            catch (Exception)
+            {
+                // Some implementations throw for invalid addresses.
+                threw = true;
+            }
+
+            string text = output.ToString().ToLower();
+
+            // Pass condition: either it threw OR it printed an error message.
+            Assert.True(threw || text.Contains("error"));
+
+            // If it did NOT throw, we expect it to behave like your I/O ops:
+            // increment IP and keep running (prevents infinite loops).
+            if (!threw)
+            {
+                Assert.Equal(1, cpu.InstructionPointer);
+            }
+        }
+        finally
+        {
+            Console.SetOut(originalOut);
+        }
+    }
+
+     [Fact]
 public void Input_ReadsValueIntoMemory()
 {
     var cpu = new CpuState();
@@ -32,7 +81,8 @@ public void Input_ReadsValueIntoMemory()
     }
 }
 
-    [Fact]
+
+ [Fact]
 public void Read_InvalidThenValidInput_RepromptsAndStoresValidValue()
 {
     var cpu = new CpuState();
@@ -92,5 +142,4 @@ public void Write_PrintsMemoryValue_AndAdvancesIP()
         Console.SetOut(originalOut);
     }
 }
-
 }
