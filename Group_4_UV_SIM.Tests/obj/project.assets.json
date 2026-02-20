@@ -1027,32 +1027,39 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jason\\.nuget\\packages\\": {}
+    "C:\\Users\\joshe\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
       "projectName": "Group_4_UV_SIM.Tests",
-      "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
-      "packagesPath": "C:\\Users\\jason\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\obj\\",
+      "projectPath": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+      "packagesPath": "C:\\Users\\joshe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\jason\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\joshe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
-              "projectPath": "C:\\Users\\jason\\SCHOOL\\Spring 2026\\Software Engineering\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj"
+            "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj": {
+              "projectPath": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj"
             }
           }
         }
@@ -1067,7 +1074,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -1109,7 +1116,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,78 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\uvgui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\uvgui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|solutionrelative:group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UVGUI",
+              "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\UVGUI\\UVGUI.csproj",
+              "RelativeDocumentMoniker": "UVGUI\\UVGUI.csproj",
+              "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\UVGUI\\UVGUI.csproj",
+              "RelativeToolTip": "UVGUI\\UVGUI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-20T04:23:49.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Group_4_UV_SIM.Tests",
+              "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+              "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+              "RelativeToolTip": "Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-20T04:23:03.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs",
+              "RelativeDocumentMoniker": "UVGUI\\Form1.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs [Design]",
+              "RelativeToolTip": "UVGUI\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T04:22:49.476Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
