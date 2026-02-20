@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UVGUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f1e0555d484b6d08538cb5cb71a470f0e7e89be3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8ef1810f111e9e00ac30b6824236013cf7367ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("UVGUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UVGUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
