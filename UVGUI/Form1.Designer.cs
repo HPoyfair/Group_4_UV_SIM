@@ -34,9 +34,9 @@
             btnRun = new Button();
             outputText = new TextBox();
             panel2 = new Panel();
-            ACCLabel = new Label();
-            textBox1 = new TextBox();
             textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            ACCLabel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -93,7 +93,7 @@
             outputText.ScrollBars = ScrollBars.Vertical;
             outputText.Size = new Size(645, 62);
             outputText.TabIndex = 1;
-            outputText.Text = "Console Output";
+            outputText.Text = "<Console Output>";
             // 
             // panel2
             // 
@@ -107,16 +107,15 @@
             panel2.Size = new Size(645, 472);
             panel2.TabIndex = 2;
             // 
-            // ACCLabel
+            // textBox2
             // 
-            ACCLabel.AutoSize = true;
-            ACCLabel.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ACCLabel.Location = new Point(495, 5);
-            ACCLabel.Name = "ACCLabel";
-            ACCLabel.Size = new Size(32, 18);
-            ACCLabel.TabIndex = 3;
-            ACCLabel.Text = "ACC";
-            ACCLabel.Click += label1_Click;
+            textBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBox2.Location = new Point(249, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(236, 25);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "<Input>";
+            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // textBox1
             // 
@@ -132,15 +131,16 @@
             textBox1.TextAlign = HorizontalAlignment.Center;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // textBox2
+            // ACCLabel
             // 
-            textBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(249, 3);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(236, 25);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "Input";
-            textBox2.TextChanged += textBox2_TextChanged;
+            ACCLabel.AutoSize = true;
+            ACCLabel.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ACCLabel.Location = new Point(495, 5);
+            ACCLabel.Name = "ACCLabel";
+            ACCLabel.Size = new Size(32, 18);
+            ACCLabel.TabIndex = 3;
+            ACCLabel.Text = "ACC";
+            ACCLabel.Click += label1_Click;
             // 
             // Form1
             // 
