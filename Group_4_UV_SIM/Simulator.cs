@@ -8,43 +8,52 @@ namespace Group_4_UV_SIM;
 public class Simulator
 {
 
-    private readonly CpuState cpu = new CpuState();
-    // other things here as needed 
-
-
-    public void Run()
+    private readonly CpuState cpu;
+    public Simulator(CpuState sharedState)
     {
+        cpu = sharedState;
+    }
 
 
-        Console.Write("Enter program file path: ");
-        string path = Console.ReadLine();
+    public void Run(string passedPath = null)
+    {
+        string path = passedPath;
 
+        // If no path was passed (Console mode), ask the user in the console
+        if (string.IsNullOrEmpty(path))
+        {
+            Console.Write("Enter program file path: ");
+            path = Console.ReadLine();
+        }
+
+        // Guard clause: if still empty, exit
         if (string.IsNullOrEmpty(path))
         {
             Console.WriteLine("No file path provided. Exiting.");
             return;
-        } 
+        }
 
-        ReadFile(path); 
+        // Now load and execute
+        ReadFile(path);
         LogMemory();
+    }
+        public void ExecuteNext()
+        {
+            if (cpu.Halted || cpu.InstructionPointer < 0 || cpu.InstructionPointer >= cpu.Memory.Length)
+            {
+                cpu.Halted = true;
+                return;
+            }
 
-        //================== RUN TIME ===============
-        //iterate through memory and execute instructions
-
-        cpu.InstructionPointer = 0;
-        // run the program when instructions are ABOVE 0, HALT FLAG IS FALSE, and IP IS WITHIN MEMORY BOUNDS
-        while(!cpu.Halted && cpu.InstructionPointer < cpu.Memory.Length && cpu.InstructionPointer >= 0) {  
             int instruction = cpu.Memory[cpu.InstructionPointer];
-            int opcode = instruction / 100; // first two digits
-            int operand = instruction % 100; // last two digits
+            int opcode = instruction / 100;
+            int operand = instruction % 100;
 
-            //execute instruction based on opcode (ex: 1007 == opcode:10, operand:7)
             ExecuteInstruction(opcode, operand);
 
-    
+
+            cpu.NotifyStateChanged();
         }
-        
-    }
     public void ReadFile(string path)
     {
         

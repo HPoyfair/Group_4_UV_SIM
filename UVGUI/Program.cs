@@ -1,20 +1,19 @@
+using System;
+using System.Windows.Forms;
 using Group_4_UV_SIM;
 
 namespace UVGUI
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-            ApplicationConfiguration.Initialize();
             CpuState cpu = new CpuState();
+
             Application.Run(new Form1(cpu));
         }
     }

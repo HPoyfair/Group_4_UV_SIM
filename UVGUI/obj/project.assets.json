@@ -417,7 +417,10 @@
         },
         "runtime": {
           "bin/placeholder/Group_4_UV_SIM.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       },
       "Group_4_UV_SIM.Tests/1.0.0": {
         "type": "project",
@@ -432,7 +435,10 @@
         },
         "runtime": {
           "bin/placeholder/Group_4_UV_SIM.Tests.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },

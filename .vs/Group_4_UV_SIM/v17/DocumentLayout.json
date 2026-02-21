@@ -3,56 +3,63 @@
   "WorkspaceRootPath": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\uvgui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\uvgui.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|solutionrelative:group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\simulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\simulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\cpustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\cpustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\loadstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\loadstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\inputoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\inputoutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim.tests\\controltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|solutionrelative:group_4_uv_sim.tests\\controltests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{38BF3F9A-C9CB-45F4-A96E-F1379ABCC8A2}|Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj|solutionrelative:group_4_uv_sim.tests\\group_4_uv_sim.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\group_4_uv_sim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\group_4_uv_sim.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\loadstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\loadstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\uvgui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BA5FF0E-FDDA-4D69-BD39-C347F7EED9AF}|UVGUI\\UVGUI.csproj|solutionrelative:uvgui\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\simulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\simulator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\group_4_uv_sim.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\group_4_uv_sim.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\arithmetic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\arithmetic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|c:\\users\\joshe\\source\\repos\\group_4_uv_sim\\group_4_uv_sim\\operations\\control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABF2E034-885E-454F-BE57-15879534FA2C}|Group_4_UV_SIM\\Group_4_UV_SIM.csproj|solutionrelative:group_4_uv_sim\\operations\\control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -62,7 +69,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,124 +77,126 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs",
               "RelativeDocumentMoniker": "UVGUI\\Form1.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs [Design]*",
-              "RelativeToolTip": "UVGUI\\Form1.cs [Design]*",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs [Design]",
+              "RelativeToolTip": "UVGUI\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T17:00:27.445Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "UVGUI\\Form1.Designer.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.Designer.cs*",
-              "RelativeToolTip": "UVGUI\\Form1.Designer.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.Designer.cs",
+              "RelativeToolTip": "UVGUI\\Form1.Designer.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwAAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T04:36:30.979Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UVGUI.csproj",
-              "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\UVGUI\\UVGUI.csproj",
-              "RelativeDocumentMoniker": "UVGUI\\UVGUI.csproj",
-              "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\UVGUI\\UVGUI.csproj",
-              "RelativeToolTip": "UVGUI\\UVGUI.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-02-20T04:23:49.219Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Program.cs",
-              "RelativeDocumentMoniker": "UVGUI\\Program.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Program.cs",
-              "RelativeToolTip": "UVGUI\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T04:40:24.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs",
               "RelativeDocumentMoniker": "UVGUI\\Form1.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs*",
-              "RelativeToolTip": "UVGUI\\Form1.cs*",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAQwB4AAAArAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Form1.cs",
+              "RelativeToolTip": "UVGUI\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-20T04:37:45.155Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CpuState.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\CpuState.cs",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\CpuState.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\CpuState.cs",
+              "RelativeToolTip": "Group_4_UV_SIM\\CpuState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:29:12.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "Control.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\Control.cs",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\operations\\Control.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\Control.cs",
+              "RelativeToolTip": "Group_4_UV_SIM\\operations\\Control.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:29:32.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InputOutput.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\InputOutput.cs",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\operations\\InputOutput.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\InputOutput.cs",
+              "RelativeToolTip": "Group_4_UV_SIM\\operations\\InputOutput.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:29:38.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Group_4_UV_SIM.Tests.csproj",
               "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
               "RelativeDocumentMoniker": "Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
               "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
               "RelativeToolTip": "Group_4_UV_SIM.Tests\\Group_4_UV_SIM.Tests.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-02-20T04:23:03.356Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Simulator.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Simulator.cs",
-              "RelativeDocumentMoniker": "Group_4_UV_SIM\\Simulator.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Simulator.cs",
-              "RelativeToolTip": "Group_4_UV_SIM\\Simulator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T04:29:16.163Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CpuState.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\CpuState.cs",
-              "RelativeDocumentMoniker": "Group_4_UV_SIM\\CpuState.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\CpuState.cs",
-              "RelativeToolTip": "Group_4_UV_SIM\\CpuState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T04:29:12.306Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Program.cs",
-              "RelativeDocumentMoniker": "Group_4_UV_SIM\\Program.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Program.cs",
-              "RelativeToolTip": "Group_4_UV_SIM\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "Group_4_UV_SIM.csproj",
+              "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "RelativeToolTip": "Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-21T19:59:30.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ControlTests.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\ControlTests.cs",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM.Tests\\ControlTests.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM.Tests\\ControlTests.cs",
+              "RelativeToolTip": "Group_4_UV_SIM.Tests\\ControlTests.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T04:29:13.254Z"
+              "WhenOpened": "2026-02-21T20:30:05.049Z"
             },
             {
               "$type": "Document",
@@ -203,19 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "InputOutput.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\InputOutput.cs",
-              "RelativeDocumentMoniker": "Group_4_UV_SIM\\operations\\InputOutput.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\InputOutput.cs",
-              "RelativeToolTip": "Group_4_UV_SIM\\operations\\InputOutput.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T04:29:38.279Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Arithmetic.cs",
               "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\Arithmetic.cs",
               "RelativeDocumentMoniker": "Group_4_UV_SIM\\operations\\Arithmetic.cs",
@@ -227,15 +224,51 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Control.cs",
-              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\Control.cs",
-              "RelativeDocumentMoniker": "Group_4_UV_SIM\\operations\\Control.cs",
-              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\operations\\Control.cs",
-              "RelativeToolTip": "Group_4_UV_SIM\\operations\\Control.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Program.cs",
+              "RelativeDocumentMoniker": "UVGUI\\Program.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\UVGUI\\Program.cs",
+              "RelativeToolTip": "UVGUI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T04:29:32.74Z"
+              "WhenOpened": "2026-02-20T04:40:24.708Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Simulator.cs",
+              "DocumentMoniker": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Simulator.cs",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\Simulator.cs",
+              "ToolTip": "C:\\Users\\joshe\\source\\repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Simulator.cs",
+              "RelativeToolTip": "Group_4_UV_SIM\\Simulator.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:29:16.163Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Group_4_UV_SIM",
+              "DocumentMoniker": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "RelativeDocumentMoniker": "Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "ToolTip": "C:\\Users\\joshe\\Source\\Repos\\Group_4_UV_SIM\\Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "RelativeToolTip": "Group_4_UV_SIM\\Group_4_UV_SIM.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-21T20:23:31.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Microsoft.NET.Sdk.DefaultItems.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.101\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.targets",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAAIwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-02-21T20:09:22.353Z"
             }
           ]
         }

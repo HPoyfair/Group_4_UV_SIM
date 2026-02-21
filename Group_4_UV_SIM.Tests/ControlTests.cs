@@ -1,5 +1,6 @@
 using Xunit;
-using Group_4_UV_SIM; // <- your namespace
+using Group_4_UV_SIM;
+using MyControl = Group_4_UV_SIM.Control;
 
 public class ControlTests
 {
@@ -11,7 +12,7 @@ public class ControlTests
         var cpu = new CpuState();
         cpu.InstructionPointer = 5;
 
-        Control.Branch(40, 17, cpu);
+        MyControl.Branch(40, 17, cpu);
 
         Assert.Equal(17, cpu.InstructionPointer);
     }
@@ -25,7 +26,7 @@ public class ControlTests
         cpu.Accumulator = 0;
         cpu.InstructionPointer = 5;
 
-        Control.BranchZero(42, 17, cpu);
+        MyControl.BranchZero(42, 17, cpu);
 
         Assert.Equal(17, cpu.InstructionPointer);
     }
@@ -37,7 +38,7 @@ public class ControlTests
         cpu.Accumulator = 10;
         cpu.InstructionPointer = 5;
 
-        Control.BranchZero(42, 17, cpu);
+        MyControl.BranchZero(42, 17, cpu);
 
         Assert.Equal(6, cpu.InstructionPointer);
     }
@@ -51,7 +52,7 @@ public class ControlTests
         cpu.Accumulator = -1;
         cpu.InstructionPointer = 5;
 
-        Control.BranchNeg(41, 17, cpu);
+        MyControl.BranchNeg(41, 17, cpu);
 
         Assert.Equal(17, cpu.InstructionPointer);
     }
@@ -63,7 +64,7 @@ public class ControlTests
         cpu.Accumulator = 1;
         cpu.InstructionPointer = 5;
 
-        Control.BranchNeg(41, 17, cpu);
+        MyControl.BranchNeg(41, 17, cpu);
 
         Assert.Equal(6, cpu.InstructionPointer);
     }

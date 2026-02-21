@@ -4,50 +4,36 @@ namespace Group_4_UV_SIM;
 public class InputOutput
 {
     private const int WORD_LIMIT = 9999;
-    
-        public static void Read(int opcode, int operand, CpuState cpu){
 
-        if (!IsValidAddress(operand, cpu)){
-
-            Console.WriteLine($"Error: Invalid memory address {operand} in READ operation.");
-            cpu.InstructionPointer++; // incrementing even in an error prevents infinate loops
-            return;
+    public static void Read(int opcode, int operand, CpuState cpu)
+    {
+        int value = 0;
+        if (cpu.OnRequestInput != null)
+        {
+            value = cpu.OnRequestInput($"Enter value for address {operand}:");
         }
 
-        while (true){ 
-
-            Console.Write($"Enter an integer word (-9999 to 9999) for memory[{operand:D2}]: "); // adds a nice 00 to make it format good like memory
-            string? input = Console.ReadLine();
-
-            if (int.TryParse(input, out int value) && value >= -WORD_LIMIT && value <= WORD_LIMIT)
-            {
-                cpu.Memory[operand] = value;
-                break;
-            }
-
-            Console.WriteLine("Invalid input. Please enter a signed integer between -9999 and 9999.");
-        }
-
+        cpu.Memory[operand] = value;
         cpu.InstructionPointer++;
     }
 
 
-       
-    
-
-     public static void Write(int opcode, int operand, CpuState cpu){
 
 
-        if (!IsValidAddress(operand, cpu)) //validate address again
+
+    public static void Write(int opcode, int operand, CpuState cpu)
+    {
+        int value = cpu.Memory[operand];
+        string message = $"> {value:0000}";
+
+        if (cpu.OnOutputMessage != null)
         {
-            Console.WriteLine($"Error: Invalid memory address {operand} in WRITE operation.");
-            cpu.InstructionPointer++; 
-            return;
+            cpu.OnOutputMessage(message);
         }
-
-        int value = cpu.Memory[operand]; // load memory
-
-        Console.WriteLine($"memory[{operand:D2}] = {FormatWord(value)}"); //write it from memory
+        else
+        {
+            Console.WriteLine(message);
+        }
 
         cpu.InstructionPointer++;
     }

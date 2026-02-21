@@ -32,11 +32,10 @@
             btnLoad = new Button();
             btnStep = new Button();
             btnRun = new Button();
-            outputText = new TextBox();
+            txtOutput = new TextBox();
             panel2 = new Panel();
             memoryGrid = new DataGridView();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            accData = new TextBox();
             ACCLabel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -63,7 +62,7 @@
             btnLoad.TabIndex = 2;
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = true;
-            btnLoad.Click += button3_Click;
+            btnLoad.Click += btnLoad_Click;
             // 
             // btnStep
             // 
@@ -73,6 +72,7 @@
             btnStep.TabIndex = 1;
             btnStep.Text = "Step";
             btnStep.UseVisualStyleBackColor = true;
+            btnStep.Click += btnStep_Click;
             // 
             // btnRun
             // 
@@ -82,67 +82,57 @@
             btnRun.TabIndex = 0;
             btnRun.Text = "Run";
             btnRun.UseVisualStyleBackColor = true;
+            btnRun.Click += btnRun_Click;
             // 
-            // outputText
+            // txtOutput
             // 
-            outputText.Dock = DockStyle.Bottom;
-            outputText.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            outputText.ForeColor = SystemColors.MenuText;
-            outputText.Location = new Point(0, 554);
-            outputText.Multiline = true;
-            outputText.Name = "outputText";
-            outputText.ReadOnly = true;
-            outputText.ScrollBars = ScrollBars.Vertical;
-            outputText.Size = new Size(422, 62);
-            outputText.TabIndex = 1;
-            outputText.Text = "<Console Output>";
+            txtOutput.Dock = DockStyle.Bottom;
+            txtOutput.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtOutput.ForeColor = SystemColors.MenuText;
+            txtOutput.Location = new Point(0, 563);
+            txtOutput.Multiline = true;
+            txtOutput.Name = "txtOutput";
+            txtOutput.ReadOnly = true;
+            txtOutput.ScrollBars = ScrollBars.Vertical;
+            txtOutput.Size = new Size(502, 62);
+            txtOutput.TabIndex = 1;
+            txtOutput.Text = "<Console Output>\r\n";
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
             panel2.Controls.Add(memoryGrid);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(accData);
             panel2.Controls.Add(ACCLabel);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(422, 616);
+            panel2.Size = new Size(502, 625);
             panel2.TabIndex = 2;
             // 
             // memoryGrid
             // 
             memoryGrid.BackgroundColor = SystemColors.GradientInactiveCaption;
             memoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            memoryGrid.Location = new Point(32, 79);
+            memoryGrid.Location = new Point(32, 53);
             memoryGrid.Name = "memoryGrid";
-            memoryGrid.Size = new Size(355, 445);
+            memoryGrid.Size = new Size(433, 480);
             memoryGrid.TabIndex = 3;
             memoryGrid.CellContentClick += memoryGrid_CellContentClick;
             // 
-            // textBox2
+            // accData
             // 
-            textBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(5, 32);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(412, 25);
-            textBox2.TabIndex = 3;
-            textBox2.Text = "<Input>";
-            textBox2.TextChanged += textBox2_TextChanged;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = SystemColors.ButtonFace;
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(323, 5);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(55, 18);
-            textBox1.TabIndex = 4;
-            textBox1.Text = "+0000";
-            textBox1.TextAlign = HorizontalAlignment.Center;
-            textBox1.TextChanged += textBox1_TextChanged;
+            accData.BackColor = SystemColors.ButtonFace;
+            accData.BorderStyle = BorderStyle.None;
+            accData.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            accData.Location = new Point(323, 5);
+            accData.Name = "accData";
+            accData.ReadOnly = true;
+            accData.Size = new Size(55, 18);
+            accData.TabIndex = 4;
+            accData.Text = "+0000";
+            accData.TextAlign = HorizontalAlignment.Center;
+            accData.TextChanged += textBox1_TextChanged;
             // 
             // ACCLabel
             // 
@@ -159,8 +149,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(422, 616);
-            Controls.Add(outputText);
+            ClientSize = new Size(502, 625);
+            Controls.Add(txtOutput);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "Form1";
@@ -180,11 +170,10 @@
         private Button btnLoad;
         private Button btnStep;
         private Button btnRun;
-        private TextBox outputText;
+        private TextBox txtOutput;
         private Panel panel2;
         private Label ACCLabel;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox accData;
         private DataGridView memoryGrid;
     }
 }

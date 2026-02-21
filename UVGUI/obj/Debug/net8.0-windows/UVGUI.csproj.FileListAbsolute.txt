@@ -2,9 +2,6 @@ C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\testho
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\xunit.abstractions.dll
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\Group_4_UV_SIM.Tests.deps.json
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\Group_4_UV_SIM.Tests.runtimeconfig.json
-C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\Group_4_UV_SIM.deps.json
-C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\Group_4_UV_SIM.runtimeconfig.json
-C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\Group_4_UV_SIM.exe
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\testhost.exe
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\xunit.runner.visualstudio.testadapter.dll
 C:\Users\joshe\Source\Repos\Group_4_UV_SIM\UVGUI\bin\Debug\net8.0-windows\UVGUI.exe
