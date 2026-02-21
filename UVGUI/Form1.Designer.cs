@@ -88,12 +88,12 @@
             outputText.Dock = DockStyle.Bottom;
             outputText.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             outputText.ForeColor = SystemColors.MenuText;
-            outputText.Location = new Point(0, 410);
+            outputText.Location = new Point(0, 554);
             outputText.Multiline = true;
             outputText.Name = "outputText";
             outputText.ReadOnly = true;
             outputText.ScrollBars = ScrollBars.Vertical;
-            outputText.Size = new Size(617, 62);
+            outputText.Size = new Size(422, 62);
             outputText.TabIndex = 1;
             outputText.Text = "<Console Output>";
             // 
@@ -107,24 +107,25 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(617, 472);
+            panel2.Size = new Size(422, 616);
             panel2.TabIndex = 2;
             // 
             // memoryGrid
             // 
             memoryGrid.BackgroundColor = SystemColors.GradientInactiveCaption;
             memoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            memoryGrid.Location = new Point(32, 51);
+            memoryGrid.Location = new Point(32, 79);
             memoryGrid.Name = "memoryGrid";
-            memoryGrid.Size = new Size(551, 320);
+            memoryGrid.Size = new Size(355, 445);
             memoryGrid.TabIndex = 3;
+            memoryGrid.CellContentClick += memoryGrid_CellContentClick;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(249, 3);
+            textBox2.Location = new Point(5, 32);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(236, 25);
+            textBox2.Size = new Size(412, 25);
             textBox2.TabIndex = 3;
             textBox2.Text = "<Input>";
             textBox2.TextChanged += textBox2_TextChanged;
@@ -134,7 +135,7 @@
             textBox1.BackColor = SystemColors.ButtonFace;
             textBox1.BorderStyle = BorderStyle.None;
             textBox1.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(528, 5);
+            textBox1.Location = new Point(323, 5);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(55, 18);
@@ -147,7 +148,7 @@
             // 
             ACCLabel.AutoSize = true;
             ACCLabel.Font = new Font("Consolas", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ACCLabel.Location = new Point(495, 5);
+            ACCLabel.Location = new Point(290, 5);
             ACCLabel.Name = "ACCLabel";
             ACCLabel.Size = new Size(32, 18);
             ACCLabel.TabIndex = 3;
@@ -158,13 +159,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(617, 472);
+            ClientSize = new Size(422, 616);
             Controls.Add(outputText);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Name = "Form1";
             Text = "UV SIM Virtual Machine";
-            Load += Form1_Load_1;
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

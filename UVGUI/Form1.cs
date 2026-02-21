@@ -13,13 +13,16 @@ namespace UVGUI
 
             InitializeMemoryGrid();
             RefreshMemoryDisplay();
+
         }
+
         private void RefreshMemoryDisplay()
         {
             for (int i = 0; i < 100; i++)
             {
-                int row = i / 10;
-                int col = i % 10;
+                int row = i % 20;
+                int pair = i / 20;
+                int col = pair * 2 + 1;
 
                 memoryGrid[col, row].Value =
                     cpu.Memory[i].ToString("+0000;-0000;0000");
@@ -27,48 +30,66 @@ namespace UVGUI
         }
         private void InitializeMemoryGrid()
         {
-            memoryGrid.ColumnCount = 10;
-            memoryGrid.RowCount = 10;
-
-            for (int col = 0; col < 10; col++)
-            {
-                memoryGrid.Columns[col].Width = 60;
-                memoryGrid.Columns[col].SortMode =
-                    DataGridViewColumnSortMode.NotSortable;
-            }
-
-            for (int row = 0; row < 10; row++)
-            {
-                memoryGrid.Rows[row].HeaderCell.Value =
-                    (row * 10).ToString("D2");
-            }
+            memoryGrid.Columns.Clear();
+            memoryGrid.Rows.Clear();
 
             memoryGrid.AllowUserToAddRows = false;
             memoryGrid.AllowUserToDeleteRows = false;
             memoryGrid.AllowUserToResizeRows = false;
             memoryGrid.AllowUserToResizeColumns = false;
 
-            memoryGrid.DefaultCellStyle.Alignment =
-                DataGridViewContentAlignment.MiddleCenter;
+            memoryGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            memoryGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            memoryGrid.RowTemplate.Height = 22;
+
+            memoryGrid.ColumnCount = 10;
+            memoryGrid.RowCount = 20;
+
+            memoryGrid.RowHeadersVisible = false;
+            memoryGrid.ColumnHeadersVisible = false;
 
             memoryGrid.DefaultCellStyle.Font = new Font("Consolas", 10);
-        }
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
+            for (int col = 0; col < 10; col++)
+            {
+                memoryGrid.Columns[col].Width = 45;
+
+                if (col % 2 == 0)
+                {
+                    memoryGrid.Columns[col].ReadOnly = true;
+                    memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    memoryGrid.Columns[col].Width = 25;
+                }
+                else
+                {
+                    memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                }
+            }
+
+            for (int row = 0; row < 20; row++)
+            {
+                for (int pair = 0; pair < 5; pair++)
+                {
+                    int address = pair * 20 + row;
+                    int col = pair * 2;
+
+                    memoryGrid[col, row].Value = address.ToString("D2");
+
+                    memoryGrid[col + 1, row].Value = "0000";
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
@@ -84,6 +105,11 @@ namespace UVGUI
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void memoryGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
