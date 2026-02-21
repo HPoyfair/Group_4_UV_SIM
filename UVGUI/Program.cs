@@ -1,3 +1,5 @@
+using Group_4_UV_SIM;
+
 namespace UVGUI
 {
     internal static class Program
@@ -10,8 +12,10 @@ namespace UVGUI
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            CpuState cpu = new CpuState();
+            Application.Run(new Form1(cpu));
         }
     }
 }

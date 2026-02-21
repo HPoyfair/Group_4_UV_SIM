@@ -34,11 +34,13 @@
             btnRun = new Button();
             outputText = new TextBox();
             panel2 = new Panel();
+            memoryGrid = new DataGridView();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             ACCLabel = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)memoryGrid).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,21 +93,31 @@
             outputText.Name = "outputText";
             outputText.ReadOnly = true;
             outputText.ScrollBars = ScrollBars.Vertical;
-            outputText.Size = new Size(645, 62);
+            outputText.Size = new Size(617, 62);
             outputText.TabIndex = 1;
             outputText.Text = "<Console Output>";
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(memoryGrid);
             panel2.Controls.Add(textBox2);
             panel2.Controls.Add(textBox1);
             panel2.Controls.Add(ACCLabel);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(645, 472);
+            panel2.Size = new Size(617, 472);
             panel2.TabIndex = 2;
+            // 
+            // memoryGrid
+            // 
+            memoryGrid.BackgroundColor = SystemColors.GradientInactiveCaption;
+            memoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            memoryGrid.Location = new Point(32, 51);
+            memoryGrid.Name = "memoryGrid";
+            memoryGrid.Size = new Size(551, 320);
+            memoryGrid.TabIndex = 3;
             // 
             // textBox2
             // 
@@ -146,7 +158,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(645, 472);
+            ClientSize = new Size(617, 472);
             Controls.Add(outputText);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -156,6 +168,7 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)memoryGrid).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -171,5 +184,6 @@
         private Label ACCLabel;
         private TextBox textBox1;
         private TextBox textBox2;
+        private DataGridView memoryGrid;
     }
 }
