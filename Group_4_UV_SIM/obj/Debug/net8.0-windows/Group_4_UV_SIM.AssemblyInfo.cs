@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a66c817d3f07d607b220a58330239aa83823ef12")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c80a229f81bdae4d74f6070f872afb5638c2365")]
 [assembly: System.Reflection.AssemblyProductAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Group_4_UV_SIM")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

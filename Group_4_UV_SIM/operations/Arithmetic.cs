@@ -54,7 +54,7 @@ public class Arithmetic
         }
         else
         {
-            cpu.Accumulator = cpu.Accumulator / operand;
+            cpu.Accumulator = cpu.Accumulator / cpu.Memory[operand];
         }
 
         cpu.InstructionPointer++;
