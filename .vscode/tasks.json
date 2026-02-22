@@ -1,0 +1,35 @@
+
+
+
+
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Solution (MSBuild - GUI works)",
+      "type": "shell",
+      "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe\"",
+      "args": [
+        "Group_4_UV_SIM.sln",
+        "/t:Restore,Build",
+        "/p:Configuration=Debug"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build"
+    },
+    {
+      "label": "Build sim (dotnet)",
+      "type": "shell",
+      "command": "dotnet",
+      "args": ["build", ".\\sim\\sim.csproj"],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Test sim.tests (dotnet)",
+      "type": "shell",
+      "command": "dotnet",
+      "args": ["test", ".\\sim.tests\\sim.tests.csproj"],
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}
