@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             btnLoad = new Button();
-            btnStep = new Button();
+            btnSave = new Button();
             btnRun = new Button();
 
             //memory editor buttons
@@ -59,7 +59,7 @@
             panel1.Controls.Add(btnDelete);
             panel1.Controls.Add(btnInsert);
             panel1.Controls.Add(btnLoad);
-            panel1.Controls.Add(btnStep);
+            panel1.Controls.Add(btnSave);
             panel1.Controls.Add(btnRun);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -138,17 +138,17 @@
 
 
 
-
             // 
-            // btnStep
+            // btnSave
             // 
-            btnStep.Location = new Point(84, 3);
-            btnStep.Name = "btnStep";
-            btnStep.Size = new Size(75, 23);
-            btnStep.TabIndex = 1;
-            btnStep.Text = "Step";
-            btnStep.UseVisualStyleBackColor = true;
-            btnStep.Click += btnStep_Click;
+            btnSave.Location = new Point(84, 3);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(75, 23);
+            btnSave.TabIndex = 1;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
+            
             // 
             // btnRun
             // 
@@ -245,7 +245,7 @@
 
         private Panel panel1;
         private Button btnLoad;
-        private Button btnStep;
+        private Button btnSave;
         private Button btnRun;
         private TextBox txtOutput;
         private Panel panel2;

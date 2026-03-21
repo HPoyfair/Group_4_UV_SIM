@@ -163,26 +163,46 @@ namespace UVGUI
 
         }
 
-        private void btnStep_Click(object sender, EventArgs e)
+            private void btnSave_Click(object sender, EventArgs e)
+    {
+        using (SaveFileDialog sfd = new SaveFileDialog())
         {
-            if (cpu.Halted)
+            sfd.Filter = "Text Files|*.txt|All Files|*.*";
+            sfd.Title = "Save UVSim Program";
+            sfd.FileName = "program.txt";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("CPU is halted. Reload program to restart.");
-                return;
+                try
+                {
+                    SaveFileService.SaveMemoryToFile(cpu.Memory, sfd.FileName);
+
+                    MessageBox.Show(
+                        $"Program saved to:\n{sfd.FileName}",
+                        "Save Successful",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information
+                    );
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"Save failed: {ex.Message}",
+                        "Save Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
             }
-
-            Simulator sim = new Simulator(cpu);
-            sim.ExecuteNext();
-
-            RefreshMemoryDisplay();
         }
+    }
 
         private async void btnRun_Click(object sender, EventArgs e)
         {
             if (cpu.Halted) return;
 
             btnRun.Enabled = false;
-            btnStep.Enabled = false;
+            
 
             Simulator sim = new Simulator(cpu);
 
@@ -195,7 +215,7 @@ namespace UVGUI
             });
 
             btnRun.Enabled = true;
-            btnStep.Enabled = true;
+            
             MessageBox.Show("Program Halted.");
         }
 
@@ -258,9 +278,9 @@ namespace UVGUI
         btnRun.ForeColor = Color.White;
         btnRun.UseVisualStyleBackColor = false;
 
-        btnStep.BackColor = theme.PrimaryColor;
-        btnStep.ForeColor = Color.White;
-        btnStep.UseVisualStyleBackColor = false;
+        btnSave.BackColor = theme.PrimaryColor;
+        btnSave.ForeColor = Color.White;
+        btnSave.UseVisualStyleBackColor = false;
 
         btnLoad.BackColor = theme.PrimaryColor;
         btnLoad.ForeColor = Color.White;
