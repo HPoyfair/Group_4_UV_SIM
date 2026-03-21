@@ -8,6 +8,7 @@ namespace UVGUI
         private CpuState cpu;
         private Theme theme;
         private MemoryEditor memoryEditor;
+        private static readonly string _themeConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "theme.txt");
 
         public Form1(CpuState cpuState)
         {
@@ -16,12 +17,8 @@ namespace UVGUI
             // Initialize the memory editor with the CPU's memory reference
             memoryEditor = new MemoryEditor(cpu.Memory);
 
-            // Set a default theme
-            theme = new Theme
-        {
-            PrimaryColor = Color.FromArgb(76, 114, 29),
-            OffColor = Color.White
-        };
+            // Load theme from config file, falling back to UVU defaults
+            theme = ThemeService.LoadTheme(_themeConfigPath);
 
             
             cpu.OnOutputMessage = WriteToOutput;
@@ -85,19 +82,21 @@ namespace UVGUI
                 }
                 if (i == cpu.InstructionPointer)
                 {
+                    Color highlightText = GetContrastColor(theme.PrimaryColor);
                     memoryGrid[col, row].Style.BackColor = theme.PrimaryColor;
                     memoryGrid[col - 1, row].Style.BackColor = theme.PrimaryColor;
 
-                    memoryGrid[col, row].Style.ForeColor = Color.White;
-                    memoryGrid[col - 1, row].Style.ForeColor = Color.White;
+                    memoryGrid[col, row].Style.ForeColor = highlightText;
+                    memoryGrid[col - 1, row].Style.ForeColor = highlightText;
                 }
                 else
                 {
+                    Color cellText = GetContrastColor(theme.OffColor);
                     memoryGrid[col, row].Style.BackColor = theme.OffColor;
                     memoryGrid[col - 1, row].Style.BackColor = theme.OffColor;
 
-                    memoryGrid[col, row].Style.ForeColor = Color.Black;
-                    memoryGrid[col - 1, row].Style.ForeColor = Color.Black;
+                    memoryGrid[col, row].Style.ForeColor = cellText;
+                    memoryGrid[col - 1, row].Style.ForeColor = cellText;
                 }
             }
 
@@ -269,21 +268,30 @@ namespace UVGUI
         
 
         // ================== THEME METHODS ==================
+        private static Color GetContrastColor(Color background)
+        {
+            // Perceived brightness formula — returns black or white for maximum readability
+            double brightness = (background.R * 299 + background.G * 587 + background.B * 114) / 1000.0;
+            return brightness > 128 ? Color.Black : Color.White;
+        }
+
         private void ApplyTheme()
     {
         panel1.BackColor = theme.PrimaryColor;
         panel2.BackColor = theme.OffColor;
 
+        Color buttonText = GetContrastColor(theme.PrimaryColor);
+
         btnRun.BackColor = theme.PrimaryColor;
-        btnRun.ForeColor = Color.White;
+        btnRun.ForeColor = buttonText;
         btnRun.UseVisualStyleBackColor = false;
 
         btnSave.BackColor = theme.PrimaryColor;
-        btnSave.ForeColor = Color.White;
+        btnSave.ForeColor = buttonText;
         btnSave.UseVisualStyleBackColor = false;
 
         btnLoad.BackColor = theme.PrimaryColor;
-        btnLoad.ForeColor = Color.White;
+        btnLoad.ForeColor = buttonText;
         btnLoad.UseVisualStyleBackColor = false;
 
         txtOutput.BackColor = Color.White;
@@ -298,27 +306,35 @@ namespace UVGUI
         memoryGrid.GridColor = theme.PrimaryColor;
 
         memoryGrid.DefaultCellStyle.SelectionBackColor = theme.PrimaryColor;
-        memoryGrid.DefaultCellStyle.SelectionForeColor = Color.White;
+        memoryGrid.DefaultCellStyle.SelectionForeColor = buttonText;
 
         btnInsert.BackColor = theme.PrimaryColor;
-        btnInsert.ForeColor = Color.White;
+        btnInsert.ForeColor = buttonText;
         btnInsert.UseVisualStyleBackColor = false;
 
         btnDelete.BackColor = theme.PrimaryColor;
-        btnDelete.ForeColor = Color.White;
+        btnDelete.ForeColor = buttonText;
         btnDelete.UseVisualStyleBackColor = false;
 
         btnCopy.BackColor = theme.PrimaryColor;
-        btnCopy.ForeColor = Color.White;
+        btnCopy.ForeColor = buttonText;
         btnCopy.UseVisualStyleBackColor = false;
 
         btnCut.BackColor = theme.PrimaryColor;
-        btnCut.ForeColor = Color.White;
+        btnCut.ForeColor = buttonText;
         btnCut.UseVisualStyleBackColor = false;
 
         btnPaste.BackColor = theme.PrimaryColor;
-        btnPaste.ForeColor = Color.White;
+        btnPaste.ForeColor = buttonText;
         btnPaste.UseVisualStyleBackColor = false;
+
+        btnChangeTheme.BackColor = theme.PrimaryColor;
+        btnChangeTheme.ForeColor = buttonText;
+        btnChangeTheme.UseVisualStyleBackColor = false;
+
+        btnResetTheme.BackColor = theme.PrimaryColor;
+        btnResetTheme.ForeColor = buttonText;
+        btnResetTheme.UseVisualStyleBackColor = false;
 
         RefreshMemoryDisplay();
     }
@@ -462,6 +478,32 @@ private void btnPaste_Click(object sender, EventArgs e)
     }
 
     RefreshMemoryDisplay();
+}
+
+private void btnChangeTheme_Click(object sender, EventArgs e)
+{
+    MessageBox.Show("Choose the PRIMARY COLOR — used for buttons and the toolbar.", "Change Theme: Step 1 of 2", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    using var primaryDialog = new ColorDialog();
+    primaryDialog.Color = theme.PrimaryColor;
+    if (primaryDialog.ShowDialog() != DialogResult.OK) return;
+
+    MessageBox.Show("Choose the SECONDARY COLOR — used for panel backgrounds.", "Change Theme: Step 2 of 2", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    using var offDialog = new ColorDialog();
+    offDialog.Color = theme.OffColor;
+    if (offDialog.ShowDialog() != DialogResult.OK) return;
+
+    theme.PrimaryColor = primaryDialog.Color;
+    theme.OffColor = offDialog.Color;
+    ThemeService.SaveTheme(theme, _themeConfigPath);
+    ApplyTheme();
+}
+
+private void btnResetTheme_Click(object sender, EventArgs e)
+{
+    theme = ThemeService.DefaultTheme();
+    if (File.Exists(_themeConfigPath))
+        File.Delete(_themeConfigPath);
+    ApplyTheme();
 }
     }
 }

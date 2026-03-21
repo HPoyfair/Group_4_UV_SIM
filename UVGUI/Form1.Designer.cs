@@ -39,6 +39,8 @@
             btnCopy = new Button();
             btnCut = new Button();
             btnPaste = new Button();
+            btnChangeTheme = new Button();
+            btnResetTheme = new Button();
 
             txtOutput = new TextBox();
             panel2 = new Panel();
@@ -53,6 +55,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(btnResetTheme);
+            panel1.Controls.Add(btnChangeTheme);
             panel1.Controls.Add(btnPaste);
             panel1.Controls.Add(btnCut);
             panel1.Controls.Add(btnCopy);
@@ -63,7 +67,7 @@
             panel1.Controls.Add(btnRun);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(650, 28);
+            panel1.Size = new Size(832, 28);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -128,6 +132,26 @@
             btnPaste.Text = "Paste";
             btnPaste.UseVisualStyleBackColor = true;
             btnPaste.Click += btnPaste_Click;
+            // 
+            // btnChangeTheme
+            // 
+            btnChangeTheme.Location = new Point(651, 3);
+            btnChangeTheme.Name = "btnChangeTheme";
+            btnChangeTheme.Size = new Size(75, 23);
+            btnChangeTheme.TabIndex = 8;
+            btnChangeTheme.Text = "Theme";
+            btnChangeTheme.UseVisualStyleBackColor = true;
+            btnChangeTheme.Click += btnChangeTheme_Click;
+            // 
+            // btnResetTheme
+            // 
+            btnResetTheme.Location = new Point(732, 3);
+            btnResetTheme.Name = "btnResetTheme";
+            btnResetTheme.Size = new Size(95, 23);
+            btnResetTheme.TabIndex = 9;
+            btnResetTheme.Text = "Reset Theme";
+            btnResetTheme.UseVisualStyleBackColor = true;
+            btnResetTheme.Click += btnResetTheme_Click;
 
 
 
@@ -226,7 +250,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 625);
+            ClientSize = new Size(862, 625);
             Controls.Add(txtOutput);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -258,5 +282,7 @@
         private Button btnCopy;
         private Button btnCut;
         private Button btnPaste;
+        private Button btnChangeTheme;
+        private Button btnResetTheme;
     }
 }
