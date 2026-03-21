@@ -32,6 +32,14 @@
             btnLoad = new Button();
             btnStep = new Button();
             btnRun = new Button();
+
+            //memory editor buttons
+            btnInsert = new Button();
+            btnDelete = new Button();
+            btnCopy = new Button();
+            btnCut = new Button();
+            btnPaste = new Button();
+
             txtOutput = new TextBox();
             panel2 = new Panel();
             memoryGrid = new DataGridView();
@@ -45,12 +53,17 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(btnPaste);
+            panel1.Controls.Add(btnCut);
+            panel1.Controls.Add(btnCopy);
+            panel1.Controls.Add(btnDelete);
+            panel1.Controls.Add(btnInsert);
             panel1.Controls.Add(btnLoad);
             panel1.Controls.Add(btnStep);
             panel1.Controls.Add(btnRun);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(243, 28);
+            panel1.Size = new Size(650, 28);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -63,6 +76,69 @@
             btnLoad.Text = "Load";
             btnLoad.UseVisualStyleBackColor = true;
             btnLoad.Click += btnLoad_Click;
+            //MEMORY EDITOR CONTROLS
+            // 
+            // btnInsert
+            // 
+            btnInsert.Location = new Point(246, 3);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(75, 23);
+            btnInsert.TabIndex = 3;
+            btnInsert.Text = "Insert";
+            btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(327, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnCopy
+            // 
+            btnCopy.Location = new Point(408, 3);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(75, 23);
+            btnCopy.TabIndex = 5;
+            btnCopy.Text = "Copy";
+            btnCopy.UseVisualStyleBackColor = true;
+            btnCopy.Click += btnCopy_Click;
+            // 
+            // btnCut
+            // 
+            btnCut.Location = new Point(489, 3);
+            btnCut.Name = "btnCut";
+            btnCut.Size = new Size(75, 23);
+            btnCut.TabIndex = 6;
+            btnCut.Text = "Cut";
+            btnCut.UseVisualStyleBackColor = true;
+            btnCut.Click += btnCut_Click;
+            // 
+            // 
+            // btnPaste
+            // 
+            btnPaste.Location = new Point(570, 3);
+            btnPaste.Name = "btnPaste";
+            btnPaste.Size = new Size(75, 23);
+            btnPaste.TabIndex = 7;
+            btnPaste.Text = "Paste";
+            btnPaste.UseVisualStyleBackColor = true;
+            btnPaste.Click += btnPaste_Click;
+
+
+
+
+
+
+
+
+
+
+
             // 
             // btnStep
             // 
@@ -119,6 +195,7 @@
             memoryGrid.Size = new Size(433, 480);
             memoryGrid.TabIndex = 3;
             memoryGrid.CellContentClick += memoryGrid_CellContentClick;
+            memoryGrid.CellEndEdit += memoryGrid_CellEndEdit;
             // 
             // accData
             // 
@@ -149,7 +226,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(502, 625);
+            ClientSize = new Size(680, 625);
             Controls.Add(txtOutput);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -175,5 +252,11 @@
         private Label ACCLabel;
         private TextBox accData;
         private DataGridView memoryGrid;
+        // memory editor refs
+        private Button btnInsert;
+        private Button btnDelete;
+        private Button btnCopy;
+        private Button btnCut;
+        private Button btnPaste;
     }
 }

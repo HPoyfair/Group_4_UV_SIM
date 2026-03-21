@@ -7,11 +7,15 @@ namespace UVGUI
     {
         private CpuState cpu;
         private Theme theme;
+        private MemoryEditor memoryEditor;
 
         public Form1(CpuState cpuState)
         {
             InitializeComponent();
             cpu = cpuState;
+            // Initialize the memory editor with the CPU's memory reference
+            memoryEditor = new MemoryEditor(cpu.Memory);
+
             // Set a default theme
             theme = new Theme
         {
@@ -196,28 +200,35 @@ namespace UVGUI
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
+{
+    using (OpenFileDialog ofd = new OpenFileDialog())
+    {
+        ofd.Filter = "Text Files|*.txt|All Files|*.*";
+
+        if (ofd.ShowDialog() == DialogResult.OK)
         {
-            using (OpenFileDialog ofd = new OpenFileDialog())
+            try
             {
-                ofd.Filter = "Text Files|*.txt|All Files|*.*";
+                Simulator sim = new Simulator(this.cpu);
 
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    Simulator sim = new Simulator(this.cpu);
+                Array.Clear(cpu.Memory, 0, cpu.Memory.Length);
 
-                    Array.Clear(cpu.Memory, 0, cpu.Memory.Length);
+                sim.ReadFile(ofd.FileName);
 
-                    sim.ReadFile(ofd.FileName);
+                cpu.InstructionPointer = 0;
+                cpu.Halted = false;
 
-                    cpu.InstructionPointer = 0;
-                    cpu.Halted = false;
+                RefreshMemoryDisplay();
 
-                    RefreshMemoryDisplay();
-
-                    MessageBox.Show($"Loaded program: {Path.GetFileName(ofd.FileName)}");
-                }
+                MessageBox.Show($"Loaded program: {Path.GetFileName(ofd.FileName)}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Load failed: {ex.Message}", "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
+}
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -235,7 +246,7 @@ namespace UVGUI
 
         }
 
-
+        
 
         // ================== THEME METHODS ==================
         private void ApplyTheme()
@@ -269,7 +280,168 @@ namespace UVGUI
         memoryGrid.DefaultCellStyle.SelectionBackColor = theme.PrimaryColor;
         memoryGrid.DefaultCellStyle.SelectionForeColor = Color.White;
 
+        btnInsert.BackColor = theme.PrimaryColor;
+        btnInsert.ForeColor = Color.White;
+        btnInsert.UseVisualStyleBackColor = false;
+
+        btnDelete.BackColor = theme.PrimaryColor;
+        btnDelete.ForeColor = Color.White;
+        btnDelete.UseVisualStyleBackColor = false;
+
+        btnCopy.BackColor = theme.PrimaryColor;
+        btnCopy.ForeColor = Color.White;
+        btnCopy.UseVisualStyleBackColor = false;
+
+        btnCut.BackColor = theme.PrimaryColor;
+        btnCut.ForeColor = Color.White;
+        btnCut.UseVisualStyleBackColor = false;
+
+        btnPaste.BackColor = theme.PrimaryColor;
+        btnPaste.ForeColor = Color.White;
+        btnPaste.UseVisualStyleBackColor = false;
+
         RefreshMemoryDisplay();
     }
+// ================== MEMORY EDITING METHODS ==================
+    private int GetSelectedMemoryAddress()
+{
+    if (memoryGrid.CurrentCell == null)
+        return -1;
+
+    int col = memoryGrid.CurrentCell.ColumnIndex;
+    int row = memoryGrid.CurrentCell.RowIndex;
+
+    if (col % 2 == 0)
+        return -1;
+
+    int pair = col / 2;
+    int address = pair * 20 + row;
+
+    return address;
+}
+
+private void memoryGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+{
+    if (e.ColumnIndex % 2 == 0) return;
+
+    int pair = e.ColumnIndex / 2;
+    int address = pair * 20 + e.RowIndex;
+
+    string raw = memoryGrid[e.ColumnIndex, e.RowIndex].Value?.ToString()?.Trim() ?? "";
+
+    if (memoryEditor.TryUpdateValue(address, raw, out string errorMessage))
+    {
+        memoryGrid[e.ColumnIndex, e.RowIndex].Value = MemoryEditor.FormatValue(cpu.Memory[address]);
+        RefreshMemoryDisplay();
+    }
+    else
+    {
+        MessageBox.Show(errorMessage, "Invalid Instruction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        memoryGrid[e.ColumnIndex, e.RowIndex].Value = MemoryEditor.FormatValue(cpu.Memory[address]);
+    }
+}
+
+
+
+// insert handler
+private void btnInsert_Click(object sender, EventArgs e)
+{
+    int address = GetSelectedMemoryAddress();
+    if (address < 0)
+    {
+        MessageBox.Show("Select a memory value cell first.");
+        return;
+    }
+
+    if (!memoryEditor.TryInsertValue(address, 0, out string errorMessage))
+    {
+        MessageBox.Show(errorMessage, "Insert Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    RefreshMemoryDisplay();
+}
+
+// delete handler
+private void btnDelete_Click(object sender, EventArgs e)
+{
+    int address = GetSelectedMemoryAddress();
+    if (address < 0)
+    {
+        MessageBox.Show("Select a memory value cell first.");
+        return;
+    }
+
+    if (!memoryEditor.TryDeleteValue(address, out string errorMessage))
+    {
+        MessageBox.Show(errorMessage, "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    RefreshMemoryDisplay();
+}
+// copy handler
+private void btnCopy_Click(object sender, EventArgs e)
+{
+    int address = GetSelectedMemoryAddress();
+    if (address < 0)
+    {
+        MessageBox.Show("Select a memory value cell first.");
+        return;
+    }
+
+    if (!memoryEditor.TryCopy(address, 1, out string copiedText, out string errorMessage))
+    {
+        MessageBox.Show(errorMessage, "Copy Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    Clipboard.SetText(copiedText);
+}
+//cut handler
+private void btnCut_Click(object sender, EventArgs e)
+{
+    int address = GetSelectedMemoryAddress();
+    if (address < 0)
+    {
+        MessageBox.Show("Select a memory value cell first.");
+        return;
+    }
+
+    if (!memoryEditor.TryCut(address, 1, out string cutText, out string errorMessage))
+    {
+        MessageBox.Show(errorMessage, "Cut Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    Clipboard.SetText(cutText);
+    RefreshMemoryDisplay();
+}
+//paste handler
+private void btnPaste_Click(object sender, EventArgs e)
+{
+    int address = GetSelectedMemoryAddress();
+    if (address < 0)
+    {
+        MessageBox.Show("Select a memory value cell first.");
+        return;
+    }
+
+    if (!Clipboard.ContainsText())
+    {
+        MessageBox.Show("Clipboard does not contain text.");
+        return;
+    }
+
+    string clipboardText = Clipboard.GetText();
+
+    if (!memoryEditor.TryPaste(address, clipboardText, out string errorMessage))
+    {
+        MessageBox.Show(errorMessage, "Paste Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        return;
+    }
+
+    RefreshMemoryDisplay();
+}
     }
 }
