@@ -6,12 +6,20 @@ namespace UVGUI
     public partial class Form1 : Form
     {
         private CpuState cpu;
+        private Theme theme;
 
         public Form1(CpuState cpuState)
         {
             InitializeComponent();
             cpu = cpuState;
+            // Set a default theme
+            theme = new Theme
+        {
+            PrimaryColor = Color.FromArgb(76, 114, 29),
+            OffColor = Color.White
+        };
 
+            
             cpu.OnOutputMessage = WriteToOutput;
 
             cpu.OnRequestInput = (prompt) =>
@@ -23,6 +31,8 @@ namespace UVGUI
 
             cpu.StateChanged += HandleCpuStateChanged;
             InitializeMemoryGrid();
+            //apply theme here after initializing components
+            ApplyTheme(); 
             RefreshMemoryDisplay();
         }
 
@@ -71,13 +81,19 @@ namespace UVGUI
                 }
                 if (i == cpu.InstructionPointer)
                 {
-                    memoryGrid[col, row].Style.BackColor = Color.LightBlue;
-                    memoryGrid[col - 1, row].Style.BackColor = Color.LightBlue;
+                    memoryGrid[col, row].Style.BackColor = theme.PrimaryColor;
+                    memoryGrid[col - 1, row].Style.BackColor = theme.PrimaryColor;
+
+                    memoryGrid[col, row].Style.ForeColor = Color.White;
+                    memoryGrid[col - 1, row].Style.ForeColor = Color.White;
                 }
                 else
                 {
-                    memoryGrid[col, row].Style.BackColor = Color.White;
-                    memoryGrid[col - 1, row].Style.BackColor = Color.White;
+                    memoryGrid[col, row].Style.BackColor = theme.OffColor;
+                    memoryGrid[col - 1, row].Style.BackColor = theme.OffColor;
+
+                    memoryGrid[col, row].Style.ForeColor = Color.Black;
+                    memoryGrid[col - 1, row].Style.ForeColor = Color.Black;
                 }
             }
 
@@ -218,5 +234,42 @@ namespace UVGUI
         {
 
         }
+
+
+
+        // ================== THEME METHODS ==================
+        private void ApplyTheme()
+    {
+        panel1.BackColor = theme.PrimaryColor;
+        panel2.BackColor = theme.OffColor;
+
+        btnRun.BackColor = theme.PrimaryColor;
+        btnRun.ForeColor = Color.White;
+        btnRun.UseVisualStyleBackColor = false;
+
+        btnStep.BackColor = theme.PrimaryColor;
+        btnStep.ForeColor = Color.White;
+        btnStep.UseVisualStyleBackColor = false;
+
+        btnLoad.BackColor = theme.PrimaryColor;
+        btnLoad.ForeColor = Color.White;
+        btnLoad.UseVisualStyleBackColor = false;
+
+        txtOutput.BackColor = Color.White;
+        txtOutput.ForeColor = Color.Black;
+
+        accData.BackColor = Color.White;
+        accData.ForeColor = Color.Black;
+
+        ACCLabel.ForeColor = Color.Black;
+
+        memoryGrid.BackgroundColor = theme.OffColor;
+        memoryGrid.GridColor = theme.PrimaryColor;
+
+        memoryGrid.DefaultCellStyle.SelectionBackColor = theme.PrimaryColor;
+        memoryGrid.DefaultCellStyle.SelectionForeColor = Color.White;
+
+        RefreshMemoryDisplay();
+    }
     }
 }
