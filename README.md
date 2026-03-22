@@ -7,9 +7,6 @@ This version includes a **Windows Forms GUI** (no command line needed for normal
 
 ## Requirements
 
-### To run the GUI (from Release download)
-- Windows 10/11
-- Download the Release asset and run the GUI executable (see **Run from GitHub Release** below)
 
 ### To build/run from source
 - Windows 10/11
@@ -51,5 +48,8 @@ From the repo root:
 dotnet restore
 dotnet run --project .\UVGUI\UVGUI.csproj
 
+```
+## NOTE
+Our class definition document and design document are included within this project.
 
 
