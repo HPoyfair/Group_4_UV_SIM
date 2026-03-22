@@ -50,6 +50,6 @@ dotnet run --project .\UVGUI\UVGUI.csproj
 
 ```
 ## NOTE
-Our class definition document and design document are included within this project.
+Our class definition document, meeting report, and design document are included within this project.
 
 
