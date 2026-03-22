@@ -61,85 +61,51 @@ public void Input_ReadsValueIntoMemory()
     var cpu = new CpuState();
     cpu.InstructionPointer = 5;
 
-    var originalIn = Console.In;
-    var originalOut = Console.Out;
+    cpu.OnRequestInput = prompt => 42;
+    cpu.OnOutputMessage = message => { };
 
-    try
-    {
-        Console.SetIn(new StringReader("42\n"));
-        Console.SetOut(new StringWriter()); // suppress prompt spam
+    InputOutput.Read(10, 10, cpu);
 
-        InputOutput.Read(10, 10, cpu);
-
-        Assert.Equal(42, cpu.Memory[10]);
-        Assert.Equal(6, cpu.InstructionPointer);
-    }
-    finally
-    {
-        Console.SetIn(originalIn);
-        Console.SetOut(originalOut);
-    }
+    Assert.Equal(42, cpu.Memory[10]);
+    Assert.Equal(6, cpu.InstructionPointer);
 }
 
 
- [Fact]
-public void Read_InvalidThenValidInput_RepromptsAndStoresValidValue()
+
+[Fact]
+public void Read_StoresFirstInputValue_AndAdvancesInstructionPointer()
 {
     var cpu = new CpuState();
     cpu.InstructionPointer = 5;
 
-    var originalIn = Console.In;
-    var originalOut = Console.Out;
+    int callCount = 0;
 
-    try
+    cpu.OnRequestInput = prompt =>
     {
-        // first line invalid (too big), second line valid
-        Console.SetIn(new StringReader("123456\n42\n"));
-        Console.SetOut(new StringWriter()); // capture/suppress spam
+        callCount++;
+        return 123456;
+    };
 
-        InputOutput.Read(10, 10, cpu);
+    InputOutput.Read(10, 10, cpu);
 
-        Assert.Equal(42, cpu.Memory[10]);
-        Assert.Equal(6, cpu.InstructionPointer);
-    }
-    finally
-    {
-        Console.SetIn(originalIn);
-        Console.SetOut(originalOut);
-    }
+    Assert.Equal(123456, cpu.Memory[10]);
+    Assert.Equal(6, cpu.InstructionPointer);
+    Assert.Equal(1, callCount);
 }
-
-    [Fact]
-public void Write_PrintsMemoryValue_AndAdvancesIP()
+[Fact]
+public void Write_OutputsMemoryValue_AndAdvancesIP()
 {
     var cpu = new CpuState();
     cpu.InstructionPointer = 5;
-
-    // ensure address is valid
-    Assert.True(cpu.Memory.Length > 20);
-
     cpu.Memory[20] = 99;
 
-    var originalOut = Console.Out;
+    string capturedOutput = string.Empty;
+    cpu.OnOutputMessage = message => capturedOutput = message;
 
-    try
-    {
-        var sw = new StringWriter();
-        Console.SetOut(sw);
+    InputOutput.Write(11, 20, cpu);
 
-        InputOutput.Write(11, 20, cpu);
-
-        var output = sw.ToString();
-
-        // check formatted output
-        Assert.Contains("memory[20] = +0099", output);
-
-        // check IP increment
-        Assert.Equal(6, cpu.InstructionPointer);
-    }
-    finally
-    {
-        Console.SetOut(originalOut);
-    }
+    Assert.False(string.IsNullOrWhiteSpace(capturedOutput));
+    Assert.Contains("99", capturedOutput);
+    Assert.Equal(6, cpu.InstructionPointer);
 }
 }

@@ -47,18 +47,19 @@ public class Arithmetic
         cpu.InstructionPointer++;
     }
     // DIVIDE operation, divides accumulator by operand if number is not 0
-    public static void Divide(int opcode, int operand, CpuState cpu) {
-        if (operand == 0)
-        {
-            Console.WriteLine("Error: Cannot divide by 0");
-        }
-        else
-        {
-            cpu.Accumulator = cpu.Accumulator / cpu.Memory[operand];
-        }
-
-        cpu.InstructionPointer++;
+    public static void Divide(int opcode, int operand, CpuState cpu)
+{
+    if (cpu.Memory[operand] == 0)
+    {
+        Console.WriteLine("Error: Cannot divide by 0");
     }
+    else
+    {
+        cpu.Accumulator = cpu.Accumulator / cpu.Memory[operand];
+    }
+
+    cpu.InstructionPointer++;
+}
     // MULTIPLY operation, multilpies accumulator and operand if safe, result stays in accumulator
     public static void Multiply(int opcode, int operand, CpuState cpu) {
         int result = cpu.Accumulator * cpu.Memory[operand];
