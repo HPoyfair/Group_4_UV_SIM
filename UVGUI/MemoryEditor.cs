@@ -1,20 +1,24 @@
+using Group_4_UV_SIM;
+
 namespace UVGUI
 {
     public class MemoryEditor
     {
-        public const int MemorySize = 100;
-        public const int MinValue = -9999;
-        public const int MaxValue = 9999;
-
         private readonly int[] memory;
+        private readonly CpuState cpu;
 
-        public MemoryEditor(int[] memory)
+        public MemoryEditor(CpuState cpu)
         {
-            this.memory = memory ?? throw new ArgumentNullException(nameof(memory));
+            this.cpu = cpu ?? throw new ArgumentNullException(nameof(cpu));
+            memory = cpu.Memory ?? throw new ArgumentNullException(nameof(cpu.Memory));
 
-            if (memory.Length != MemorySize)
-                throw new ArgumentException($"Memory must contain exactly {MemorySize} entries.");
+            if (memory.Length != 250)
+                throw new ArgumentException("CPU memory must contain exactly 250 entries.");
         }
+
+        private int MemorySize => FormatRules.GetMaxMemorySize(cpu.Format);
+        private int MinValue => FormatRules.GetMinWordValue(cpu.Format);
+        private int MaxValue => FormatRules.GetMaxWordValue(cpu.Format);
 
         public bool TryUpdateValue(int address, string rawValue, out string errorMessage)
         {
@@ -94,7 +98,7 @@ namespace UVGUI
             List<string> lines = new List<string>();
             for (int i = 0; i < count; i++)
             {
-                lines.Add(FormatValue(memory[startAddress + i]));
+                lines.Add(FormatValue(memory[startAddress + i], cpu.Format));
             }
 
             copiedText = string.Join(Environment.NewLine, lines);
@@ -157,7 +161,7 @@ namespace UVGUI
 
             if (usedEntries + insertedCount > MemorySize)
             {
-                errorMessage = "Paste would exceed the 100 memory entry limit.";
+                errorMessage = $"Paste would exceed the {MemorySize} memory entry limit.";
                 return false;
             }
 
@@ -185,12 +189,14 @@ namespace UVGUI
             return 0;
         }
 
-        public static string FormatValue(int value)
+        public static string FormatValue(int value, ProgramFormat format)
         {
-            return value.ToString("+0000;-0000;0000");
+            return format == ProgramFormat.Legacy4Digit
+                ? value.ToString("+0000;-0000;0000")
+                : value.ToString("+000000;-000000;000000");
         }
 
-        public static bool TryParseValue(string rawValue, out int parsedValue, out string errorMessage)
+        public bool TryParseValue(string rawValue, out int parsedValue, out string errorMessage)
         {
             parsedValue = 0;
             errorMessage = string.Empty;
@@ -241,12 +247,12 @@ namespace UVGUI
             return true;
         }
 
-        private static bool IsValidAddress(int address)
+        private bool IsValidAddress(int address)
         {
             return address >= 0 && address < MemorySize;
         }
 
-        private static bool IsValidValue(int value)
+        private bool IsValidValue(int value)
         {
             return value >= MinValue && value <= MaxValue;
         }

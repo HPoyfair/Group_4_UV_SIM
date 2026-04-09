@@ -10,32 +10,67 @@ namespace UVGUI
         private MemoryEditor memoryEditor;
         private static readonly string _themeConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "theme.txt");
 
+        private int GetVisibleMemorySize()
+{
+    return FormatRules.GetMaxMemorySize(cpu.Format);
+}
+
+private int GetGridRowCount()
+{
+    return cpu.Format == ProgramFormat.Legacy4Digit ? 20 : 50;
+}
+
+private string FormatAddress(int address)
+{
+    return cpu.Format == ProgramFormat.Legacy4Digit
+        ? address.ToString("D2")
+        : address.ToString("D3");
+}
+
+private string FormatWord(int value)
+{
+    return cpu.Format == ProgramFormat.Legacy4Digit
+        ? value.ToString("+0000;-0000;0000")
+        : value.ToString("+000000;-000000;000000");
+}
+
         public Form1(CpuState cpuState)
+{
+    try
+    {
+        InitializeComponent();
+        cpu = cpuState;
+
+        memoryEditor = new MemoryEditor(cpu);
+
+        theme = ThemeService.LoadTheme(_themeConfigPath);
+
+        cpu.OnOutputMessage = WriteToOutput;
+
+        cpu.OnRequestInput = (prompt) =>
         {
-            InitializeComponent();
-            cpu = cpuState;
-            // Initialize the memory editor with the CPU's memory reference
-            memoryEditor = new MemoryEditor(cpu.Memory);
+            string input = Microsoft.VisualBasic.Interaction.InputBox(prompt, "UVSim Input", "0");
+            int.TryParse(input, out int result);
+            return result;
+        };
 
-            // Load theme from config file, falling back to UVU defaults
-            theme = ThemeService.LoadTheme(_themeConfigPath);
+        cpu.StateChanged += HandleCpuStateChanged;
 
-            
-            cpu.OnOutputMessage = WriteToOutput;
-
-            cpu.OnRequestInput = (prompt) =>
-            {
-                string input = Microsoft.VisualBasic.Interaction.InputBox(prompt, "UVSim Input", "0");
-                int.TryParse(input, out int result);
-                return result;
-            };
-
-            cpu.StateChanged += HandleCpuStateChanged;
-            InitializeMemoryGrid();
-            //apply theme here after initializing components
-            ApplyTheme(); 
-            RefreshMemoryDisplay();
-        }
+        InitializeMemoryGrid();
+        ApplyTheme();
+        RefreshMemoryDisplay();
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show(
+            $"Form startup failed:\n\n{ex}",
+            "Startup Error",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Error
+        );
+        throw;
+    }
+}
 
         private void HandleCpuStateChanged()
         {
@@ -66,92 +101,134 @@ namespace UVGUI
                 txtOutput.ScrollToCaret();
             }
         }
+        //REFRESH MEMORY DISPLAY
         private void RefreshMemoryDisplay()
+{
+    int visibleMemory = GetVisibleMemorySize();
+    int rowsPerPair = GetGridRowCount();
+
+    accData.Text = FormatWord(cpu.Accumulator);
+
+    for (int row = 0; row < memoryGrid.RowCount; row++)
+    {
+        for (int pair = 0; pair < 5; pair++)
         {
-            accData.Text = cpu.Accumulator.ToString("+0000;-0000;0000");
-            for (int i = 0; i < 100; i++)
+            int address = pair * rowsPerPair + row;
+            int addressCol = pair * 2;
+            int valueCol = addressCol + 1;
+
+            if (address >= visibleMemory)
             {
-                int row = i % 20;
-                int pair = i / 20;
-                int col = (pair * 2) + 1;
+                memoryGrid[addressCol, row].Value = "";
+                memoryGrid[valueCol, row].Value = "";
 
-                string newValue = cpu.Memory[i].ToString("+0000;-0000;0000");
-                if (memoryGrid[col, row].Value?.ToString() != newValue)
-                {
-                    memoryGrid[col, row].Value = newValue;
-                }
-                if (i == cpu.InstructionPointer)
-                {
-                    Color highlightText = GetContrastColor(theme.PrimaryColor);
-                    memoryGrid[col, row].Style.BackColor = theme.PrimaryColor;
-                    memoryGrid[col - 1, row].Style.BackColor = theme.PrimaryColor;
+                memoryGrid[addressCol, row].Style.BackColor = theme.OffColor;
+                memoryGrid[valueCol, row].Style.BackColor = theme.OffColor;
 
-                    memoryGrid[col, row].Style.ForeColor = highlightText;
-                    memoryGrid[col - 1, row].Style.ForeColor = highlightText;
-                }
-                else
-                {
-                    Color cellText = GetContrastColor(theme.OffColor);
-                    memoryGrid[col, row].Style.BackColor = theme.OffColor;
-                    memoryGrid[col - 1, row].Style.BackColor = theme.OffColor;
+                memoryGrid[addressCol, row].Style.ForeColor = GetContrastColor(theme.OffColor);
+                memoryGrid[valueCol, row].Style.ForeColor = GetContrastColor(theme.OffColor);
 
-                    memoryGrid[col, row].Style.ForeColor = cellText;
-                    memoryGrid[col - 1, row].Style.ForeColor = cellText;
-                }
+                memoryGrid[valueCol, row].ReadOnly = true;
+                continue;
             }
 
+            memoryGrid[addressCol, row].Value = FormatAddress(address);
+
+            string newValue = FormatWord(cpu.Memory[address]);
+            if (memoryGrid[valueCol, row].Value?.ToString() != newValue)
+            {
+                memoryGrid[valueCol, row].Value = newValue;
+            }
+
+            memoryGrid[valueCol, row].ReadOnly = false;
+
+            if (address == cpu.InstructionPointer)
+            {
+                Color highlightText = GetContrastColor(theme.PrimaryColor);
+
+                memoryGrid[valueCol, row].Style.BackColor = theme.PrimaryColor;
+                memoryGrid[addressCol, row].Style.BackColor = theme.PrimaryColor;
+
+                memoryGrid[valueCol, row].Style.ForeColor = highlightText;
+                memoryGrid[addressCol, row].Style.ForeColor = highlightText;
+            }
+            else
+            {
+                Color cellText = GetContrastColor(theme.OffColor);
+
+                memoryGrid[valueCol, row].Style.BackColor = theme.OffColor;
+                memoryGrid[addressCol, row].Style.BackColor = theme.OffColor;
+
+                memoryGrid[valueCol, row].Style.ForeColor = cellText;
+                memoryGrid[addressCol, row].Style.ForeColor = cellText;
+            }
         }
+    }
+}
+
+        // INIT MEMORY GRID
         private void InitializeMemoryGrid()
+{
+    int rowsPerPair = GetGridRowCount();
+
+    memoryGrid.Columns.Clear();
+    memoryGrid.Rows.Clear();
+
+    memoryGrid.AllowUserToAddRows = false;
+    memoryGrid.AllowUserToDeleteRows = false;
+    memoryGrid.AllowUserToResizeRows = false;
+    memoryGrid.AllowUserToResizeColumns = false;
+
+    memoryGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+    memoryGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+    memoryGrid.RowTemplate.Height = 22;
+
+    memoryGrid.ColumnCount = 10;
+    memoryGrid.RowCount = rowsPerPair;
+
+    memoryGrid.RowHeadersVisible = false;
+    memoryGrid.ColumnHeadersVisible = false;
+
+    memoryGrid.DefaultCellStyle.Font = new Font("Consolas", 10);
+
+    for (int col = 0; col < 10; col++)
+    {
+        memoryGrid.Columns[col].Width = 60;
+
+        if (col % 2 == 0)
         {
-            memoryGrid.Columns.Clear();
-            memoryGrid.Rows.Clear();
+            memoryGrid.Columns[col].ReadOnly = true;
+            memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            memoryGrid.Columns[col].Width = cpu.Format == ProgramFormat.Legacy4Digit ? 25 : 35;
+        }
+        else
+        {
+            memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            memoryGrid.Columns[col].Width = cpu.Format == ProgramFormat.Legacy4Digit ? 60 : 80;
+        }
+    }
 
-            memoryGrid.AllowUserToAddRows = false;
-            memoryGrid.AllowUserToDeleteRows = false;
-            memoryGrid.AllowUserToResizeRows = false;
-            memoryGrid.AllowUserToResizeColumns = false;
+    for (int row = 0; row < rowsPerPair; row++)
+    {
+        for (int pair = 0; pair < 5; pair++)
+        {
+            int address = pair * rowsPerPair + row;
+            int col = pair * 2;
 
-            memoryGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            memoryGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            memoryGrid.RowTemplate.Height = 22;
-
-            memoryGrid.ColumnCount = 10;
-            memoryGrid.RowCount = 20;
-
-            memoryGrid.RowHeadersVisible = false;
-            memoryGrid.ColumnHeadersVisible = false;
-
-            memoryGrid.DefaultCellStyle.Font = new Font("Consolas", 10);
-
-            for (int col = 0; col < 10; col++)
+            if (address < GetVisibleMemorySize())
             {
-                memoryGrid.Columns[col].Width = 60;
-
-                if (col % 2 == 0)
-                {
-                    memoryGrid.Columns[col].ReadOnly = true;
-                    memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    memoryGrid.Columns[col].Width = 25;
-                }
-                else
-                {
-                    memoryGrid.Columns[col].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-                }
+                memoryGrid[col, row].Value = FormatAddress(address);
+                memoryGrid[col + 1, row].Value = FormatWord(0);
             }
-
-            for (int row = 0; row < 20; row++)
+            else
             {
-                for (int pair = 0; pair < 5; pair++)
-                {
-                    int address = pair * 20 + row;
-                    int col = pair * 2;
-
-                    memoryGrid[col, row].Value = address.ToString("D2");
-
-                    memoryGrid[col + 1, row].Value = "0000";
-                }
+                memoryGrid[col, row].Value = "";
+                memoryGrid[col + 1, row].Value = "";
+                memoryGrid[col + 1, row].ReadOnly = true;
             }
         }
+    }
+}
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -237,6 +314,9 @@ namespace UVGUI
                 cpu.InstructionPointer = 0;
                 cpu.Halted = false;
 
+
+                memoryEditor = new MemoryEditor(cpu);
+                InitializeMemoryGrid();
                 RefreshMemoryDisplay();
 
                 MessageBox.Show($"Loaded program: {Path.GetFileName(ofd.FileName)}");
@@ -339,7 +419,7 @@ namespace UVGUI
         RefreshMemoryDisplay();
     }
 // ================== MEMORY EDITING METHODS ==================
-    private int GetSelectedMemoryAddress()
+ private int GetSelectedMemoryAddress()
 {
     if (memoryGrid.CurrentCell == null)
         return -1;
@@ -350,8 +430,12 @@ namespace UVGUI
     if (col % 2 == 0)
         return -1;
 
+    int rowsPerPair = GetGridRowCount();
     int pair = col / 2;
-    int address = pair * 20 + row;
+    int address = pair * rowsPerPair + row;
+
+    if (address >= GetVisibleMemorySize())
+        return -1;
 
     return address;
 }
@@ -360,20 +444,24 @@ private void memoryGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
 {
     if (e.ColumnIndex % 2 == 0) return;
 
+    int rowsPerPair = GetGridRowCount();
     int pair = e.ColumnIndex / 2;
-    int address = pair * 20 + e.RowIndex;
+    int address = pair * rowsPerPair + e.RowIndex;
+
+    if (address >= GetVisibleMemorySize())
+        return;
 
     string raw = memoryGrid[e.ColumnIndex, e.RowIndex].Value?.ToString()?.Trim() ?? "";
 
     if (memoryEditor.TryUpdateValue(address, raw, out string errorMessage))
     {
-        memoryGrid[e.ColumnIndex, e.RowIndex].Value = MemoryEditor.FormatValue(cpu.Memory[address]);
+        memoryGrid[e.ColumnIndex, e.RowIndex].Value = FormatWord(cpu.Memory[address]);
         RefreshMemoryDisplay();
     }
     else
     {
         MessageBox.Show(errorMessage, "Invalid Instruction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        memoryGrid[e.ColumnIndex, e.RowIndex].Value = MemoryEditor.FormatValue(cpu.Memory[address]);
+        memoryGrid[e.ColumnIndex, e.RowIndex].Value = FormatWord(cpu.Memory[address]);
     }
 }
 
