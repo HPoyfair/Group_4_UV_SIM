@@ -8,6 +8,11 @@ namespace Group_4_UV_SIM;
 public class Simulator
 {
 
+
+
+
+    
+
     private readonly CpuState cpu;
     public Simulator(CpuState sharedState)
     {
