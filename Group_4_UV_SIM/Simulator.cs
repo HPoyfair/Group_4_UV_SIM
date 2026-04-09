@@ -44,15 +44,18 @@ public class Simulator
     }
         public void ExecuteNext()
         {
-            if (cpu.Halted || cpu.InstructionPointer < 0 || cpu.InstructionPointer >= cpu.Memory.Length)
+
+            int maxMemory = FormatRules.GetMaxMemorySize(cpu.Format);
+
+            if (cpu.Halted || cpu.InstructionPointer < 0 || cpu.InstructionPointer >= maxMemory)
             {
                 cpu.Halted = true;
                 return;
             }
 
             int instruction = cpu.Memory[cpu.InstructionPointer];
-            int opcode = instruction / 100;
-            int operand = instruction % 100;
+            int opcode, operand;
+            (opcode, operand) = FormatRules.ParseInstruction(instruction, cpu.Format);
 
             ExecuteInstruction(opcode, operand);
 
@@ -60,27 +63,55 @@ public class Simulator
             cpu.NotifyStateChanged();
         }
     public void ReadFile(string path)
+{
+    if (!File.Exists(path))
     {
-        
+        throw new FileNotFoundException($"File at path {path} not found.");
+    }
 
-        //check if file exists first
-        if (!File.Exists(path))
+    string[] rawLines = File.ReadAllLines(path);
+
+    List<string> lines = new List<string>();
+
+    foreach (string line in rawLines)
     {
-        Console.WriteLine($"File at path {path} not found.");
-        return;
-    }
-        //read file and load instructions into memory 
-        string[] lines = File.ReadAllLines(path);
+        if (string.IsNullOrWhiteSpace(line))
+            break;
 
-        for (int i = 0; i < lines.Length && i < cpu.Memory.Length; i++)
-        {
-            //stop reading if empty line exists
-            if(lines[i].Trim() == "") break;
-            //convert string to number and store in memory at the
-            cpu.Memory[i] = int.Parse(lines[i]);
-        }
-
+        lines.Add(line.Trim());
     }
+
+    if (lines.Count == 0)
+    {
+        throw new Exception("Program file is empty.");
+    }
+
+    ProgramFormat detectedFormat = DetectFormat(lines[0]);
+
+    foreach (string line in lines)
+    {
+        ValidateLineFormat(line, detectedFormat);
+    }
+
+    int maxLines = FormatRules.GetMaxMemorySize(detectedFormat);
+
+    if (lines.Count > maxLines)
+    {
+        throw new Exception($"File has too many lines. {detectedFormat} supports at most {maxLines} lines.");
+    }
+
+    Array.Clear(cpu.Memory, 0, cpu.Memory.Length);
+
+    cpu.Format = detectedFormat;
+    cpu.Accumulator = 0;
+    cpu.InstructionPointer = 0;
+    cpu.Halted = false;
+
+    for (int i = 0; i < lines.Count; i++)
+    {
+        cpu.Memory[i] = int.Parse(lines[i]);
+    }
+}
 
 
     public void LogMemory()
@@ -92,7 +123,49 @@ public class Simulator
     }
     
 
+//HELPERS
+private ProgramFormat DetectFormat(string line)
+{
+    string trimmed = line.Trim();
 
+    if (trimmed.StartsWith("+") || trimmed.StartsWith("-"))
+    {
+        trimmed = trimmed.Substring(1);
+    }
+
+    if (trimmed.Length == 4)
+        return ProgramFormat.Legacy4Digit;
+
+    if (trimmed.Length == 6)
+        return ProgramFormat.Extended6Digit;
+
+    throw new Exception("Invalid file format. Words must be 4 digits or 6 digits.");
+}
+
+private void ValidateLineFormat(string line, ProgramFormat format)
+{
+    string trimmed = line.Trim();
+
+    if (trimmed.StartsWith("+") || trimmed.StartsWith("-"))
+    {
+        trimmed = trimmed.Substring(1);
+    }
+
+    if (format == ProgramFormat.Legacy4Digit && trimmed.Length != 4)
+    {
+        throw new Exception("Mixed formats are not allowed. Legacy files must contain only 4-digit words.");
+    }
+
+    if (format == ProgramFormat.Extended6Digit && trimmed.Length != 6)
+    {
+        throw new Exception("Mixed formats are not allowed. Extended files must contain only 6-digit words.");
+    }
+
+    if (!int.TryParse(line, out _))
+    {
+        throw new Exception($"Invalid numeric value in file: {line}");
+    }
+}
 
     
 //IMPORTANT: You all need to increment instruction pointer on each case or handle that inside your operations class (you can look at control)
