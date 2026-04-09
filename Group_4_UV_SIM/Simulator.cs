@@ -90,6 +90,9 @@ public class Simulator
 
     foreach (string line in lines)
     {
+        //may want to change how we do this, for now, just doesnt not validate if line is negative (end of program)
+        if (line.TrimStart().StartsWith("-"))
+        continue;
         ValidateLineFormat(line, detectedFormat);
     }
 

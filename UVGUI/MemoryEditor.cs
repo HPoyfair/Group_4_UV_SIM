@@ -122,62 +122,53 @@ namespace UVGUI
         }
 
         public bool TryPaste(int startAddress, string clipboardText, out string errorMessage)
-        {
-            errorMessage = string.Empty;
+{
+    errorMessage = string.Empty;
 
-            if (!IsValidAddress(startAddress))
-            {
-                errorMessage = $"Invalid memory address: {startAddress}.";
-                return false;
-            }
+    if (!IsValidAddress(startAddress))
+    {
+        errorMessage = $"Invalid memory address: {startAddress}.";
+        return false;
+    }
 
-            if (string.IsNullOrWhiteSpace(clipboardText))
-            {
-                errorMessage = "Clipboard is empty.";
-                return false;
-            }
+    if (string.IsNullOrWhiteSpace(clipboardText))
+    {
+        errorMessage = "Clipboard is empty.";
+        return false;
+    }
 
-            string[] lines = clipboardText
-                .Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
+    string[] lines = clipboardText
+        .Split(new[] { "\r\n", "\n", "\r" }, StringSplitOptions.RemoveEmptyEntries);
 
-            List<int> valuesToPaste = new List<int>();
+    List<int> valuesToPaste = new List<int>();
 
-            foreach (string line in lines)
-            {
-                if (!TryParseValue(line.Trim(), out int parsedValue, out errorMessage))
-                    return false;
+    foreach (string line in lines)
+    {
+        if (!TryParseValue(line.Trim(), out int parsedValue, out errorMessage))
+            return false;
 
-                valuesToPaste.Add(parsedValue);
-            }
+        valuesToPaste.Add(parsedValue);
+    }
 
-            if (valuesToPaste.Count == 0)
-            {
-                errorMessage = "Clipboard does not contain any valid values.";
-                return false;
-            }
+    if (valuesToPaste.Count == 0)
+    {
+        errorMessage = "Clipboard does not contain any valid values.";
+        return false;
+    }
 
-            int usedEntries = GetUsedLength();
-            int insertedCount = valuesToPaste.Count;
+    if (startAddress + valuesToPaste.Count > MemorySize)
+    {
+        errorMessage = $"Paste would exceed the {MemorySize} memory entry limit.";
+        return false;
+    }
 
-            if (usedEntries + insertedCount > MemorySize)
-            {
-                errorMessage = $"Paste would exceed the {MemorySize} memory entry limit.";
-                return false;
-            }
+    for (int i = 0; i < valuesToPaste.Count; i++)
+    {
+        memory[startAddress + i] = valuesToPaste[i];
+    }
 
-            for (int i = usedEntries - 1; i >= startAddress; i--)
-            {
-                memory[i + insertedCount] = memory[i];
-            }
-
-            for (int i = 0; i < insertedCount; i++)
-            {
-                memory[startAddress + i] = valuesToPaste[i];
-            }
-
-            return true;
-        }
-
+    return true;
+}
         public int GetUsedLength()
         {
             for (int i = MemorySize - 1; i >= 0; i--)
