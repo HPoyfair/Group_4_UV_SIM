@@ -117,6 +117,9 @@ namespace UVGUI
             memoryGrid.MultiSelect = true;
             memoryGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
 
+            memoryGrid.AllowUserToResizeColumns = false;
+            memoryGrid.AllowUserToResizeRows = false;
+
             for (int c = 0; c < 10; c++)
             {
                 if (c % 2 == 0)
