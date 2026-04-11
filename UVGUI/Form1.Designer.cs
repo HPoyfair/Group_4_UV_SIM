@@ -29,19 +29,16 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnResetTheme = new Button();
+            btnChangeTheme = new Button();
+            btnPaste = new Button();
+            btnCut = new Button();
+            btnCopy = new Button();
+            btnDelete = new Button();
+            btnInsert = new Button();
             btnLoad = new Button();
             btnSave = new Button();
             btnRun = new Button();
-
-            //memory editor buttons
-            btnInsert = new Button();
-            btnDelete = new Button();
-            btnCopy = new Button();
-            btnCut = new Button();
-            btnPaste = new Button();
-            btnChangeTheme = new Button();
-            btnResetTheme = new Button();
-
             txtOutput = new TextBox();
             panel2 = new Panel();
             memoryGrid = new DataGridView();
@@ -71,67 +68,15 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
-            // btnLoad
+            // btnResetTheme
             // 
-            btnLoad.Location = new Point(165, 3);
-            btnLoad.Name = "btnLoad";
-            btnLoad.Size = new Size(75, 23);
-            btnLoad.TabIndex = 2;
-            btnLoad.Text = "Load";
-            btnLoad.UseVisualStyleBackColor = true;
-            btnLoad.Click += btnLoad_Click;
-            //MEMORY EDITOR CONTROLS
-            // 
-            // btnInsert
-            // 
-            btnInsert.Location = new Point(246, 3);
-            btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(75, 23);
-            btnInsert.TabIndex = 3;
-            btnInsert.Text = "Insert";
-            btnInsert.UseVisualStyleBackColor = true;
-            btnInsert.Click += btnInsert_Click;
-            // 
-            // btnDelete
-            // 
-            btnDelete.Location = new Point(327, 3);
-            btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(75, 23);
-            btnDelete.TabIndex = 4;
-            btnDelete.Text = "Delete";
-            btnDelete.UseVisualStyleBackColor = true;
-            btnDelete.Click += btnDelete_Click;
-            // 
-            // btnCopy
-            // 
-            btnCopy.Location = new Point(408, 3);
-            btnCopy.Name = "btnCopy";
-            btnCopy.Size = new Size(75, 23);
-            btnCopy.TabIndex = 5;
-            btnCopy.Text = "Copy";
-            btnCopy.UseVisualStyleBackColor = true;
-            btnCopy.Click += btnCopy_Click;
-            // 
-            // btnCut
-            // 
-            btnCut.Location = new Point(489, 3);
-            btnCut.Name = "btnCut";
-            btnCut.Size = new Size(75, 23);
-            btnCut.TabIndex = 6;
-            btnCut.Text = "Cut";
-            btnCut.UseVisualStyleBackColor = true;
-            btnCut.Click += btnCut_Click;
-            // 
-            // 
-            // btnPaste
-            // 
-            btnPaste.Location = new Point(570, 3);
-            btnPaste.Name = "btnPaste";
-            btnPaste.Size = new Size(75, 23);
-            btnPaste.TabIndex = 7;
-            btnPaste.Text = "Paste";
-            btnPaste.UseVisualStyleBackColor = true;
-            btnPaste.Click += btnPaste_Click;
+            btnResetTheme.Location = new Point(732, 3);
+            btnResetTheme.Name = "btnResetTheme";
+            btnResetTheme.Size = new Size(95, 23);
+            btnResetTheme.TabIndex = 9;
+            btnResetTheme.Text = "Reset Theme";
+            btnResetTheme.UseVisualStyleBackColor = true;
+            btnResetTheme.Click += btnResetTheme_Click;
             // 
             // btnChangeTheme
             // 
@@ -143,25 +88,65 @@
             btnChangeTheme.UseVisualStyleBackColor = true;
             btnChangeTheme.Click += btnChangeTheme_Click;
             // 
-            // btnResetTheme
+            // btnPaste
             // 
-            btnResetTheme.Location = new Point(732, 3);
-            btnResetTheme.Name = "btnResetTheme";
-            btnResetTheme.Size = new Size(95, 23);
-            btnResetTheme.TabIndex = 9;
-            btnResetTheme.Text = "Reset Theme";
-            btnResetTheme.UseVisualStyleBackColor = true;
-            btnResetTheme.Click += btnResetTheme_Click;
-
-
-
-
-
-
-
-
-
-
+            btnPaste.Location = new Point(570, 3);
+            btnPaste.Name = "btnPaste";
+            btnPaste.Size = new Size(75, 23);
+            btnPaste.TabIndex = 7;
+            btnPaste.Text = "Paste";
+            btnPaste.UseVisualStyleBackColor = true;
+            btnPaste.Click += btnPaste_Click;
+            // 
+            // btnCut
+            // 
+            btnCut.Location = new Point(489, 3);
+            btnCut.Name = "btnCut";
+            btnCut.Size = new Size(75, 23);
+            btnCut.TabIndex = 6;
+            btnCut.Text = "Cut";
+            btnCut.UseVisualStyleBackColor = true;
+            btnCut.Click += btnCut_Click;
+            // 
+            // btnCopy
+            // 
+            btnCopy.Location = new Point(408, 3);
+            btnCopy.Name = "btnCopy";
+            btnCopy.Size = new Size(75, 23);
+            btnCopy.TabIndex = 5;
+            btnCopy.Text = "Copy";
+            btnCopy.UseVisualStyleBackColor = true;
+            btnCopy.Click += btnCopy_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(327, 3);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 4;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
+            // 
+            // btnInsert
+            // 
+            btnInsert.Location = new Point(246, 3);
+            btnInsert.Name = "btnInsert";
+            btnInsert.Size = new Size(75, 23);
+            btnInsert.TabIndex = 3;
+            btnInsert.Text = "Insert";
+            btnInsert.UseVisualStyleBackColor = true;
+            btnInsert.Click += btnInsert_Click;
+            // 
+            // btnLoad
+            // 
+            btnLoad.Location = new Point(165, 3);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(75, 23);
+            btnLoad.TabIndex = 2;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
             // 
             // btnSave
             // 
@@ -172,7 +157,6 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
-            
             // 
             // btnRun
             // 
@@ -189,12 +173,12 @@
             txtOutput.Dock = DockStyle.Bottom;
             txtOutput.Font = new Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOutput.ForeColor = SystemColors.MenuText;
-            txtOutput.Location = new Point(0, 563);
+            txtOutput.Location = new Point(0, 721);
             txtOutput.Multiline = true;
             txtOutput.Name = "txtOutput";
             txtOutput.ReadOnly = true;
             txtOutput.ScrollBars = ScrollBars.Vertical;
-            txtOutput.Size = new Size(502, 62);
+            txtOutput.Size = new Size(1179, 62);
             txtOutput.TabIndex = 1;
             txtOutput.Text = "<Console Output>\r\n";
             // 
@@ -207,16 +191,16 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(502, 625);
+            panel2.Size = new Size(1179, 783);
             panel2.TabIndex = 2;
             // 
             // memoryGrid
             // 
             memoryGrid.BackgroundColor = SystemColors.GradientInactiveCaption;
             memoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            memoryGrid.Location = new Point(32, 53);
+            memoryGrid.Location = new Point(4, 31);
             memoryGrid.Name = "memoryGrid";
-            memoryGrid.Size = new Size(433, 480);
+            memoryGrid.Size = new Size(1153, 678);
             memoryGrid.TabIndex = 3;
             memoryGrid.CellContentClick += memoryGrid_CellContentClick;
             memoryGrid.CellEndEdit += memoryGrid_CellEndEdit;
@@ -250,7 +234,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(862, 625);
+            ClientSize = new Size(1179, 783);
             Controls.Add(txtOutput);
             Controls.Add(panel1);
             Controls.Add(panel2);

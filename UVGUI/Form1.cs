@@ -38,7 +38,8 @@ namespace UVGUI
         // ================= CORE HELPERS =================
 
         private int GetVisibleMemorySize() => FormatRules.GetMaxMemorySize(cpu.Format);
-        private int GetGridRowCount() => cpu.Format == ProgramFormat.Legacy4Digit ? 20 : 50;
+        private int GetGridRowCount() => cpu.Format == ProgramFormat.Legacy4Digit ? 20 : 25;
+        private int GetGridColumnPairs() => cpu.Format == ProgramFormat.Legacy4Digit ? 5 : 10;
 
         private string FormatAddress(int address)
             => cpu.Format == ProgramFormat.Legacy4Digit ? address.ToString("D2") : address.ToString("D3");
@@ -104,11 +105,12 @@ namespace UVGUI
         private void InitializeMemoryGrid()
         {
             int rows = GetGridRowCount();
+            int pairs = GetGridColumnPairs();
 
             memoryGrid.Columns.Clear();
             memoryGrid.Rows.Clear();
 
-            memoryGrid.ColumnCount = 10;
+            memoryGrid.ColumnCount = pairs * 2;
             memoryGrid.RowCount = rows;
 
             memoryGrid.RowHeadersVisible = false;
@@ -120,7 +122,7 @@ namespace UVGUI
             memoryGrid.AllowUserToResizeColumns = false;
             memoryGrid.AllowUserToResizeRows = false;
 
-            for (int c = 0; c < 10; c++)
+            for (int c = 0; c < pairs * 2; c++)
             {
                 if (c % 2 == 0)
                 {
@@ -138,12 +140,13 @@ namespace UVGUI
         {
             int max = GetVisibleMemorySize();
             int rows = GetGridRowCount();
+            int pairs = GetGridColumnPairs();
 
             accData.Text = FormatWord(cpu.Accumulator);
 
             for (int row = 0; row < memoryGrid.RowCount; row++)
             {
-                for (int pair = 0; pair < 5; pair++)
+                for (int pair = 0; pair < pairs; pair++)
                 {
                     int address = pair * rows + row;
                     int col = pair * 2;
