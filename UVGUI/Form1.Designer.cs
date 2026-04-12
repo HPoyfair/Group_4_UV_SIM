@@ -10,7 +10,7 @@
         /// <summary>
         ///  Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true if managed resources are being disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -30,6 +30,7 @@
         {
             panel1 = new Panel();
             btnResetTheme = new Button();
+            btnCloseTab = new Button();
             btnChangeTheme = new Button();
             btnPaste = new Button();
             btnCut = new Button();
@@ -41,6 +42,7 @@
             btnRun = new Button();
             txtOutput = new TextBox();
             panel2 = new Panel();
+            tabDocuments = new TabControl();
             memoryGrid = new DataGridView();
             accData = new TextBox();
             ACCLabel = new Label();
@@ -53,6 +55,7 @@
             // 
             panel1.BackColor = SystemColors.ControlDarkDark;
             panel1.Controls.Add(btnResetTheme);
+            panel1.Controls.Add(btnCloseTab);
             panel1.Controls.Add(btnChangeTheme);
             panel1.Controls.Add(btnPaste);
             panel1.Controls.Add(btnCut);
@@ -64,26 +67,37 @@
             panel1.Controls.Add(btnRun);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(832, 28);
+            panel1.Size = new Size(913, 28);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // 
+            // btnCloseTab
+            // 
+            btnCloseTab.Location = new Point(651, 3);
+            btnCloseTab.Name = "btnCloseTab";
+            btnCloseTab.Size = new Size(75, 23);
+            btnCloseTab.TabIndex = 8;
+            btnCloseTab.Text = "Close Tab";
+            btnCloseTab.UseVisualStyleBackColor = true;
+            btnCloseTab.Click += btnCloseTab_Click;
+            // 
             // btnResetTheme
             // 
-            btnResetTheme.Location = new Point(732, 3);
+            btnResetTheme.Location = new Point(813, 3);
             btnResetTheme.Name = "btnResetTheme";
             btnResetTheme.Size = new Size(95, 23);
-            btnResetTheme.TabIndex = 9;
+            btnResetTheme.TabIndex = 10;
             btnResetTheme.Text = "Reset Theme";
             btnResetTheme.UseVisualStyleBackColor = true;
             btnResetTheme.Click += btnResetTheme_Click;
             // 
             // btnChangeTheme
             // 
-            btnChangeTheme.Location = new Point(651, 3);
+            btnChangeTheme.Location = new Point(732, 3);
             btnChangeTheme.Name = "btnChangeTheme";
             btnChangeTheme.Size = new Size(75, 23);
-            btnChangeTheme.TabIndex = 8;
+            btnChangeTheme.TabIndex = 9;
             btnChangeTheme.Text = "Theme";
             btnChangeTheme.UseVisualStyleBackColor = true;
             btnChangeTheme.Click += btnChangeTheme_Click;
@@ -180,11 +194,11 @@
             txtOutput.ScrollBars = ScrollBars.Vertical;
             txtOutput.Size = new Size(1179, 62);
             txtOutput.TabIndex = 1;
-            txtOutput.Text = "<Console Output>\r\n";
             // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(tabDocuments);
             panel2.Controls.Add(memoryGrid);
             panel2.Controls.Add(accData);
             panel2.Controls.Add(ACCLabel);
@@ -194,13 +208,22 @@
             panel2.Size = new Size(1179, 783);
             panel2.TabIndex = 2;
             // 
+            // tabDocuments
+            // 
+            tabDocuments.Location = new Point(4, 29);
+            tabDocuments.Name = "tabDocuments";
+            tabDocuments.SelectedIndex = 0;
+            tabDocuments.Size = new Size(1153, 28);
+            tabDocuments.TabIndex = 5;
+            tabDocuments.SelectedIndexChanged += tabDocuments_SelectedIndexChanged;
+            // 
             // memoryGrid
             // 
             memoryGrid.BackgroundColor = SystemColors.GradientInactiveCaption;
             memoryGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            memoryGrid.Location = new Point(4, 31);
+            memoryGrid.Location = new Point(4, 63);
             memoryGrid.Name = "memoryGrid";
-            memoryGrid.Size = new Size(1153, 678);
+            memoryGrid.Size = new Size(1153, 646);
             memoryGrid.TabIndex = 3;
             memoryGrid.CellContentClick += memoryGrid_CellContentClick;
             memoryGrid.CellEndEdit += memoryGrid_CellEndEdit;
@@ -213,7 +236,7 @@
             accData.Location = new Point(323, 5);
             accData.Name = "accData";
             accData.ReadOnly = true;
-            accData.Size = new Size(55, 18);
+            accData.Size = new Size(90, 18);
             accData.TabIndex = 4;
             accData.Text = "+0000";
             accData.TextAlign = HorizontalAlignment.Center;
@@ -255,12 +278,12 @@
         private Button btnLoad;
         private Button btnSave;
         private Button btnRun;
+        private Button btnCloseTab;
         private TextBox txtOutput;
         private Panel panel2;
         private Label ACCLabel;
         private TextBox accData;
         private DataGridView memoryGrid;
-        // memory editor refs
         private Button btnInsert;
         private Button btnDelete;
         private Button btnCopy;
@@ -268,5 +291,6 @@
         private Button btnPaste;
         private Button btnChangeTheme;
         private Button btnResetTheme;
+        private TabControl tabDocuments;
     }
 }
