@@ -8,42 +8,29 @@ namespace Group_4_UV_SIM.Tests;
 public class WriteInstructionTests
 {
     [Fact]
-        public void Write_Valid_PrintsMemoryValue(){
-        // UC-05 success: Display value in memory[operand] to console
+    public void Write_Valid_UsesCurrentOutputFormat()
+    {
         var cpu = new CpuState();
+        cpu.Format = ProgramFormat.Legacy4Digit;
         cpu.InstructionPointer = 0;
 
         int operand = 7;
         cpu.Memory[operand] = 42;
 
-        var originalOut = Console.Out;
-        var output = new StringWriter();
+        string capturedOutput = string.Empty;
+        cpu.OnOutputMessage = message => capturedOutput = message;
 
-        try
-        {
-            Console.SetOut(output);
+        InputOutput.Write(11, operand, cpu);
 
-            InputOutput.Write(11, operand, cpu);
-
-            string text = output.ToString();
-
-            // Exact output format from your implementation:
-            // memory[07] = +0042
-            Assert.Contains("memory[07] = +0042", text);
-            Assert.Equal(1, cpu.InstructionPointer);
-        }
-        finally
-        {
-            Console.SetOut(originalOut);
-        }
+        Assert.Equal("> +0042", capturedOutput);
+        Assert.Equal(1, cpu.InstructionPointer);
     }
 
-   
     [Fact]
-    public void Write_InvalidAddress_PrintsError(){
-
-        // UC-05 failure/edge: invalid memory address
+    public void Write_InvalidAddress_PrintsCurrentErrorMessage()
+    {
         var cpu = new CpuState();
+        cpu.Format = ProgramFormat.Legacy4Digit;
         cpu.InstructionPointer = 0;
 
         int badOperand = 150;
@@ -59,7 +46,7 @@ public class WriteInstructionTests
 
             string text = output.ToString();
 
-            Assert.Contains("Error: Invalid memory address 150 in WRITE operation.", text);
+            Assert.Contains("Error: Invalid memory address 150.", text);
             Assert.Equal(1, cpu.InstructionPointer);
         }
         finally

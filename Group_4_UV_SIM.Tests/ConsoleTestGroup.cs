@@ -1,52 +1,24 @@
 using Xunit;
-using System;
-using System.IO;
 using Group_4_UV_SIM;
 
 [CollectionDefinition("Console Tests", DisableParallelization = true)]
 public class ConsoleTests
-// Tests Input/Output and any other instructions that interact with the console.
-// in this case, subtract is included as it uses the console for checking exception generated.
 {
     [Fact]
-    public void Subtract_InvalidAddress_HandlesFailure()
+    public void Subtract_InvalidAddress_DoesNotThrow_AndAdvancesInstructionPointer()
     {
         var cpu = new CpuState();
         cpu.Format = ProgramFormat.Legacy4Digit;
+        cpu.Accumulator = 25;
         cpu.InstructionPointer = 0;
 
         int badOperand = 150;
 
-        var originalOut = Console.Out;
-        var output = new StringWriter();
-        bool threw = false;
+        var exception = Record.Exception(() => Arithmetic.Subtract(31, badOperand, cpu));
 
-        try
-        {
-            Console.SetOut(output);
-
-            try
-            {
-                Arithmetic.Subtract(31, badOperand, cpu);
-            }
-            catch (Exception)
-            {
-                threw = true;
-            }
-
-            string text = output.ToString().ToLower();
-
-            Assert.True(threw || text.Contains("error"));
-
-            if (!threw)
-            {
-                Assert.Equal(1, cpu.InstructionPointer);
-            }
-        }
-        finally
-        {
-            Console.SetOut(originalOut);
-        }
+        Assert.Null(exception);
+        Assert.Equal(25, cpu.Accumulator);
+        Assert.Equal(1, cpu.InstructionPointer);
     }
 
     [Fact]
