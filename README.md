@@ -42,14 +42,19 @@ This version includes a **Windows Forms GUI** (no command line needed for normal
 
 ## Run From Source (GUI)
 
-From the repo root:
+From the repo root:  
 
-```powershell
+```
+powershell
 dotnet restore
 dotnet run --project .\UVGUI\UVGUI.csproj
 
 ```
+
+
 ## NOTE
 Our class definition document, meeting report, and design document are included within this project.
+
+
 
 
