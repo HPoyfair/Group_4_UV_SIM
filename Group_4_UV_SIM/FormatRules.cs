@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Group_4_UV_SIM;
 
 public enum ProgramFormat
@@ -24,12 +26,22 @@ public static class FormatRules
 
     public static bool IsValidAddress(int address, ProgramFormat format)
     {
+        bool isValid = false;
         if (format == ProgramFormat.Legacy4Digit)
         {
-            return address >= 0 && address <= 99;
+            isValid = address >= 0 && address <= 99;
+        }
+        else
+        {
+            isValid = address >= 0 && address <= 249;
         }
 
-        return address >= 0 && address <= 249;
+        
+        if(!isValid)
+        {
+            Console.WriteLine($"Error: Address {address} is out of bounds for format {format}.");
+        }
+        return isValid;
     }
 
     public static (int opcode, int operand) ParseInstruction(int instruction, ProgramFormat format)

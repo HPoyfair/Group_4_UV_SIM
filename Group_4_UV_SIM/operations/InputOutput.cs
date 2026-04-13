@@ -4,7 +4,7 @@ public class InputOutput
 {
     public static void Read(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
@@ -30,7 +30,7 @@ public class InputOutput
 
     public static void Write(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
@@ -51,16 +51,6 @@ public class InputOutput
         cpu.InstructionPointer++;
     }
 
-    private static bool HasValidAddress(int operand, CpuState cpu)
-    {
-        if (!FormatRules.IsValidAddress(operand, cpu.Format))
-        {
-            Console.WriteLine($"Error: Invalid memory address {operand}.");
-            return false;
-        }
-
-        return true;
-    }
 
     private static bool IsSafe(int value, CpuState cpu)
     {

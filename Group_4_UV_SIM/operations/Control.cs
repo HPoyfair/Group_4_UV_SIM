@@ -3,21 +3,12 @@ namespace Group_4_UV_SIM;
 
 public class Control
 {
-    private static bool HasValidAddress(int operand, CpuState cpu)
-    {
-        if (!FormatRules.IsValidAddress(operand, cpu.Format))
-        {
-            Console.WriteLine($"Error: Invalid branch address {operand}.");
-            return false;
-        }
-
-        return true;
-    }
+    
 
     public static void Branch(int opcode, int operand, CpuState cpu)
     {
         // set operand as the instruction pointer if valid
-        if (HasValidAddress(operand, cpu))
+        if (FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer = operand;
         }
@@ -38,7 +29,7 @@ public class Control
         // check if accumulator is zero, if so set instruction pointer to operand
         if (cpu.Accumulator == 0)
         {
-            if (HasValidAddress(operand, cpu))
+            if (FormatRules.IsValidAddress(operand, cpu.Format))
             {
                 cpu.InstructionPointer = operand;
             }
@@ -58,7 +49,7 @@ public class Control
         // check if accumulator is negative, if so set instruction pointer to operand
         if (cpu.Accumulator < 0)
         {
-            if (HasValidAddress(operand, cpu))
+            if (FormatRules.IsValidAddress(operand, cpu.Format))
             {
                 cpu.InstructionPointer = operand;
             }

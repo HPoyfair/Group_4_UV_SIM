@@ -18,22 +18,12 @@ public class Arithmetic
         }
     }
 
-    // Helper method to validate memory address
-    private static bool HasValidAddress(int operand, CpuState cpu)
-    {
-        if (!FormatRules.IsValidAddress(operand, cpu.Format))
-        {
-            Console.WriteLine($"Error: Invalid memory address {operand}.");
-            return false;
-        }
-
-        return true;
-    }
+    
 
     // ADD operation, adds value from memory to accumulator value if safe
     public static void Add(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
@@ -56,7 +46,7 @@ public class Arithmetic
     // SUBTRACT operation, subtracts memory value from accumulator value if safe
     public static void Subtract(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
@@ -79,7 +69,7 @@ public class Arithmetic
     // DIVIDE operation, divides accumulator by operand if number is not 0
     public static void Divide(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
@@ -109,7 +99,7 @@ public class Arithmetic
     // MULTIPLY operation, multiplies accumulator and operand if safe, result stays in accumulator
     public static void Multiply(int opcode, int operand, CpuState cpu)
     {
-        if (!HasValidAddress(operand, cpu))
+        if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
             cpu.InstructionPointer++;
             return;
