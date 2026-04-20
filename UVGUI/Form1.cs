@@ -506,6 +506,8 @@ namespace UVGUI
             panel1.BackColor = theme.PrimaryColor;
             panel2.BackColor = theme.OffColor;
             tabDocuments.BackColor = theme.OffColor;
+            memoryGrid.BackgroundColor = theme.OffColor;
+
             RefreshMemoryDisplay();
         }
 
