@@ -36,7 +36,7 @@
             btnCut = new Button();
             btnCopy = new Button();
             btnDelete = new Button();
-            btnInsert = new Button();
+            
             btnLoad = new Button();
             btnSave = new Button();
             btnRun = new Button();
@@ -61,7 +61,7 @@
             panel1.Controls.Add(btnCut);
             panel1.Controls.Add(btnCopy);
             panel1.Controls.Add(btnDelete);
-            panel1.Controls.Add(btnInsert);
+            
             panel1.Controls.Add(btnLoad);
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(btnRun);
@@ -144,13 +144,7 @@
             // 
             // btnInsert
             // 
-            btnInsert.Location = new Point(246, 3);
-            btnInsert.Name = "btnInsert";
-            btnInsert.Size = new Size(75, 23);
-            btnInsert.TabIndex = 3;
-            btnInsert.Text = "Insert";
-            btnInsert.UseVisualStyleBackColor = true;
-            btnInsert.Click += btnInsert_Click;
+            // TOOK OUT
             // 
             // btnLoad
             // 

@@ -32,6 +32,7 @@ public class InputOutput
     {
         if (!FormatRules.IsValidAddress(operand, cpu.Format))
         {
+            Console.WriteLine($"Error: Invalid memory address {operand}.");
             cpu.InstructionPointer++;
             return;
         }
