@@ -45,16 +45,18 @@ public static class FormatRules
     }
 
     public static (int opcode, int operand) ParseInstruction(int instruction, ProgramFormat format)
-    {
-        if (format == ProgramFormat.Legacy4Digit)
-        {
-            int opcode = instruction / 100;
-            int operand = instruction % 100;
-            return (opcode, operand);
-        }
+{
+    int absInstruction = Math.Abs(instruction);
 
-        int opcode6 = instruction / 1000;
-        int operand6 = instruction % 1000;
-        return (opcode6, operand6);
+    if (format == ProgramFormat.Legacy4Digit)
+    {
+        int opcode = absInstruction / 100;
+        int operand = absInstruction % 100;
+        return (opcode, operand);
     }
+
+    int opcode6 = (absInstruction / 100) % 100;
+    int operand6 = absInstruction % 100;
+    return (opcode6, operand6);
+}
 }
