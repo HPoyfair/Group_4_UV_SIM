@@ -1,7 +1,7 @@
 # User Manual
 
 This application is a graphical simulator for executing machine-level instructions.  
-It allows users to load, edit, and run programs while visualizing memory and CPU state.
+It allows users to load, edit, and execute programs while visualizing memory and CPU state in real time.
 
 ---
 
@@ -14,24 +14,27 @@ dotnet restore
 dotnet run --project .\UVGUI\UVGUI.csproj
 ```
 
-This will restore dependencies and launch the UV SIM application.
+This will restore all required dependencies and launch the UV SIM application.
 
 ---
 
-## Simulator Editor
+## Simulator Interface
 
 ![Simulator Dashboard](./images/Simulator-dash.png)
 
+The main interface provides access to memory, CPU state, program execution, and editing tools.
+
 ---
 
-### File Operations
+## File Operations
 
-#### Load
+### Load
 
-Load a file by clicking the **Load** button. This will open a new tab with the selected file loaded into memory and displayed in the GUI.
+Click **Load** to open a program file.  
+The selected file will be loaded into memory and displayed in a new tab.
 
-> ⚠️ **Note:** This system supports both 4-digit and 6-digit instructions.  
-> If you load a 6-digit file, the GUI will automatically adapt for that tab.
+> ⚠️ **Note:** This simulator supports both 4-digit and 6-digit instruction formats.  
+> When loading a 6-digit program, the interface will automatically adjust for that format.
 
 ### Example (6-digit format)
 
@@ -39,23 +42,27 @@ Load a file by clicking the **Load** button. This will open a new tab with the s
 
 ---
 
-#### Save
+### Save
 
-Save your current file by clicking the **Save** button.  
-This will export the contents of the active tab as a `.txt` file.
-
----
-
-### Run a Program
-
-To run a program, load a file into memory or manually edit memory, then click **Run**.
+Click **Save** to export the contents of the current tab to a `.txt` file.
 
 ---
 
-#### User Input
+## Running a Program
 
-Certain opcodes require input from the user.  
-When prompted, enter the desired value and click **OK**.
+To execute a program:
+
+1. Load a file or manually enter instructions into memory  
+2. Click **Run**
+
+The simulator will execute instructions until a **HALT** operation is encountered.
+
+---
+
+### User Input
+
+Some instructions require user input during execution.  
+When prompted, enter a value and click **OK**.
 
 ![User Input Example](./images/input-ex.png)
 
@@ -63,14 +70,16 @@ When prompted, enter the desired value and click **OK**.
 
 ## Memory Editor
 
-You can interact with each cell to input instructions into memory.  
-You may also use the **Toolbar** to perform actions on one or multiple cells.
+The memory grid allows direct editing of instructions.
 
-### Select One Cell
+- Click a cell to edit a single instruction  
+- Select multiple cells to perform bulk operations  
+
+### Single Cell Selection
 
 ![Select One Cell](./images/select-one.png)
 
-### Select Multiple Cells
+### Multiple Cell Selection
 
 ![Select Multiple Cells](./images/select-many.png)
 
@@ -78,32 +87,42 @@ You may also use the **Toolbar** to perform actions on one or multiple cells.
 
 ## Toolbar
 
-The toolbar allows you to modify the program currently loaded in memory.
+The toolbar provides tools for modifying memory and managing the current program.
 
 ![Toolbar](./images/toolbar.png)
 
 ### Actions
 
-#### Insert *(Deprecated)*
-This action is no longer used.
-
 #### Delete
-Deletes instructions in the selected cell(s).
+Clears the selected memory cell(s) without shifting other values.
 
 #### Copy
-Copies instructions from the selected cell(s).
+Copies the contents of the selected cell(s).
 
 #### Cut
-Copies and removes instructions from the selected cell(s).
+Copies and clears the selected cell(s).
 
 #### Paste
-Pastes instructions starting at the selected cell.
+Pastes instructions starting at the selected memory address.
+
+> ⚠️ **Note:** Pasting is limited by memory size and instruction format.  
+> Invalid or oversized input will trigger an error message.
 
 #### Close Tab
-Closes the currently selected tab.
+Closes the currently active tab.
+
+---
+
+## Theme Customization
+
+The application supports customizable color themes.
+
+![Select Theme](./images/theme.png)
 
 #### Theme
-Configure the application theme using two colors.
+Opens a dialog to select primary and secondary colors for the interface.
 
 #### Reset Theme
-Resets the theme to the default settings.
+Restores the default application theme.
+
+---
