@@ -399,18 +399,23 @@ namespace UVGUI
         {
             if (ActiveDocument == null || ActiveMemoryEditor == null) return;
 
-            int addr = GetSelectedAddress();
-            if (addr < 0) return;
-
-            if (ActiveMemoryEditor.TryDeleteValue(addr, out string err))
-            {
-                MarkDocumentDirty(ActiveDocument);
-                RefreshMemoryDisplay();
-            }
-            else
+            if (!TryGetSelectedBlock(out int start, out int count, out string err))
             {
                 MessageBox.Show(err);
+                return;
             }
+
+            for (int i = 0; i < count; i++)
+            {
+                if (!ActiveMemoryEditor.TryDeleteValue(start, out string deleteErr))
+                {
+                    MessageBox.Show(deleteErr);
+                    return;
+                }
+            }
+
+            MarkDocumentDirty(ActiveDocument);
+            RefreshMemoryDisplay();
         }
 
         private void btnCopy_Click(object sender, EventArgs e)
