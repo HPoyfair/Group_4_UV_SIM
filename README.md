@@ -26,6 +26,27 @@ The main interface provides access to memory, CPU state, program execution, and 
 
 ---
 
+## Tabs and Program Management
+
+The simulator supports multiple open programs using a tab-based interface.
+
+- Each tab represents a separate program with its own memory and CPU state  
+- You can switch between tabs at any time by clicking on them  
+- Changes made in one tab do not affect other tabs 
+- Loading a file will create a new tab for that file 
+
+### Running Programs
+
+When you click **Run**, only the currently active tab will execute.
+
+- The simulator will use the memory and CPU state from the selected tab  
+- Other tabs remain unchanged while a program is running  
+
+### Closing Tabs
+
+- Click **Close Tab** to remove the currently selected tab  
+- If all tabs are closed, a new blank tab will be created automatically  
+---
 ## File Operations
 
 ### Load
